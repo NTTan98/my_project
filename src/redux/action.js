@@ -1,4 +1,4 @@
-import { CompleteTodo, ListTodo } from './../Const/Const';
+import { CompleteTodo, ListTodo } from './../Const/constant';
 export const updateTodo = value => {
   return {
     type: ListTodo,
@@ -7,6 +7,13 @@ export const updateTodo = value => {
 };
 
 export const CompleteTodoReducer = value => {
+  return {
+    type: CompleteTodo,
+    payload: value,
+  };
+};
+
+export const DeleteTodoReducer = value => {
   return {
     type: CompleteTodo,
     payload: value,

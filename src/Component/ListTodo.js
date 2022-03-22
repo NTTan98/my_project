@@ -1,41 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Container, Checkbox, Text } from '@chakra-ui/react';
+import {
+  Container,
+  Checkbox,
+  Flex,
+  Spacer,
+  Text,
+  IconButton,
+  Icon,
+} from '@chakra-ui/react';
+import { AiTwotoneDelete } from 'react-icons/ai';
 import { CompleteTodoReducer } from '../redux/action';
 
 function ListTodo(props) {
-  const [update, setUpdate] = useState([]);
   const { todoList } = props;
   // Update status Todo
   const dispatch = useDispatch();
   const handleClickId = todo => {
-    setUpdate([{ id: todo.id, isComplete: !todo.isComplete }]);
-  };
-  useEffect(() => {
-    const action = CompleteTodoReducer(update);
+    const idSelect = todo.id;
+    const action = CompleteTodoReducer(idSelect);
     dispatch(action);
-  }, [dispatch, update]);
+  };
+  const handleClickDelete = todo => {
+    alert(todo.id);
+  };
   return (
     <div>
       {todoList.map(todo => (
-        <Container maxW="container.md" key={todo.id} className="Todo__List">
-          <Checkbox
-            colorScheme="green"
-            spacing="1rem"
-            iconColor="red.400"
-            iconSize="1rem"
-          >
-            <Text
-              onClick={() => handleClickId(todo)}
-              style={
-                todo.isComplete
-                  ? { textDecoration: 'line-through' }
-                  : { textDecoration: 'none' }
-              }
+        <Container maxW="400" key={todo.id} className="Todo__List">
+          <Flex justify={'justifyContent'} align={'center'}>
+            <Checkbox
+              colorScheme="green"
+              spacing="1rem"
+              iconColor="red.400"
+              iconSize="1rem"
+              onChange={() => handleClickId(todo)}
             >
-              {todo.todo}
-            </Text>
-          </Checkbox>
+              <Text
+                style={
+                  todo.isComplete
+                    ? { textDecoration: 'line-through' }
+                    : { textDecoration: 'none' }
+                }
+              >
+                {todo.todo}
+              </Text>
+            </Checkbox>
+            <Spacer />
+            <Icon
+              style={{ cursor: 'pointer' }}
+              as={AiTwotoneDelete}
+              onClick={() => handleClickDelete(todo)}
+            />
+          </Flex>
         </Container>
       ))}
     </div>

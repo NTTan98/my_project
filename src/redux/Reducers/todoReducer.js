@@ -1,8 +1,9 @@
-import { CompleteTodo, ListTodo } from './../../Const/constant';
+import { CompleteTodo, DeleteTodo, ListTodo } from './../../Const/constant';
 import _ from 'lodash';
 const initialState = {
   list: [],
-  id: null,
+  idActive: null,
+  idDelete: null,
 };
 const todoReducer = (state = initialState, action) => {
   // eslint-disable-next-line default-case
@@ -16,15 +17,22 @@ const todoReducer = (state = initialState, action) => {
       };
     }
     case CompleteTodo: {
-      const newId = action.payload;
+      const newIdActive = action.payload;
       for (let i = 0; i < state.list.length; i++) {
-        if (newId === state.list[i].id) {
+        if (newIdActive === state.list[i].id) {
           state.list[i].isComplete = !state.list[i].isComplete;
         }
       }
       return {
         list: _.cloneDeep(state.list),
-        id: newId,
+        idActive: newIdActive,
+      };
+    }
+    case DeleteTodo: {
+      const newIdDelete = action.payload;
+      console.log(newIdDelete);
+      return {
+        ...state,
       };
     }
     default:

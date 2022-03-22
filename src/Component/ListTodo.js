@@ -10,19 +10,21 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { AiTwotoneDelete } from 'react-icons/ai';
-import { CompleteTodoReducer } from '../redux/action';
+import { CompleteTodoReducer, DeleteTodoReducer } from '../redux/action';
 
 function ListTodo(props) {
   const { todoList } = props;
   // Update status Todo
   const dispatch = useDispatch();
   const handleClickId = todo => {
-    const idSelect = todo.id;
-    const action = CompleteTodoReducer(idSelect);
+    const idSelectActive = todo.id;
+    const action = CompleteTodoReducer(idSelectActive);
     dispatch(action);
   };
   const handleClickDelete = todo => {
-    alert(todo.id);
+    const idSelectDelete = todo.id;
+    const action = DeleteTodoReducer(idSelectDelete);
+    dispatch(action);
   };
   return (
     <div>

@@ -9,7 +9,7 @@ import {
   Icon,
   Textarea,
 } from '@chakra-ui/react';
-import { AiTwotoneDelete } from 'react-icons/ai';
+import { AiTwotoneDelete, AiFillEdit } from 'react-icons/ai';
 import { CompleteTodoReducer, DeleteTodoReducer } from '../redux/action';
 
 function ListTodo(props) {
@@ -29,7 +29,7 @@ function ListTodo(props) {
   return (
     <div>
       {todoList.map(todo => (
-        <Container maxW="400" key={todo.id} className="Todo__List">
+        <Container maxW="400" key={todo.id} style={{ marginTop: '10px' }}>
           <Flex justify={'justifyContent'} align={'center'}>
             <Checkbox
               colorScheme="green"
@@ -39,6 +39,7 @@ function ListTodo(props) {
               onChange={() => handleClickId(todo)}
             >
               <Text
+                className="Todo__List__Textarea"
                 style={
                   todo.isComplete
                     ? { textDecoration: 'line-through' }
@@ -50,9 +51,13 @@ function ListTodo(props) {
             </Checkbox>
             <Spacer />
             <Icon
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', color: 'red' }}
               as={AiTwotoneDelete}
               onClick={() => handleClickDelete(todo)}
+            />
+            <Icon
+              style={{ cursor: 'pointer', marginLeft: '10px', color: 'blue' }}
+              as={AiFillEdit}
             />
           </Flex>
         </Container>

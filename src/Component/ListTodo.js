@@ -6,8 +6,8 @@ import {
   Flex,
   Spacer,
   Text,
-  IconButton,
   Icon,
+  Textarea,
 } from '@chakra-ui/react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { CompleteTodoReducer, DeleteTodoReducer } from '../redux/action';

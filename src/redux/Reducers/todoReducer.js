@@ -30,9 +30,10 @@ const todoReducer = (state = initialState, action) => {
     }
     case DeleteTodo: {
       const newIdDelete = action.payload;
-      console.log(newIdDelete);
+      //filter data
+      const newList = state.list.filter(item => item.id !== newIdDelete);
       return {
-        ...state,
+        list: newList,
       };
     }
     default:

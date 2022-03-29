@@ -6,10 +6,11 @@ import ItemBlog from '../Component/HomeComponent/Body/Blog';
 import ItemContact from '../Component/HomeComponent/Body/Contact';
 
 export const items = [
-  { name: 'HOME', path: '/home', element: <ItemHome /> },
-  { name: 'ABOUT', path: '/about', element: <ItemAbout /> },
-  { name: 'RESUME', path: '/resume', element: <ItemResume /> },
-  { name: 'PORTFOLIO', path: '/portfolio', element: <ItemPortfolio /> },
-  { name: 'BLOG', path: '/blog', element: <ItemBlog /> },
-  { name: 'CONTACT', path: '/contact', element: <ItemContact /> },
+  { name: 'HOME', path: 'home', element: <ItemHome /> },
+  { name: 'ABOUT', path: 'about', element: <ItemAbout /> },
+  { name: 'RESUME', path: 'resume', element: <ItemResume /> },
+  { name: 'PORTFOLIO', path: 'portfolio', element: <ItemPortfolio /> },
+  { name: 'BLOG', path: 'blog', element: <ItemBlog /> },
+  { name: 'CONTACT', path: 'contact', element: <ItemContact /> },
 ];
+//

@@ -10,23 +10,8 @@ const Home = () => {
     <div>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/nav/*" element={<Header items={items} />} />
       </Routes>
-      {/* auth router */}
-      <HStack spacing={8}>
-        <Header items={items} />
-        <VStack className="Home__Container" spacing={8}>
-          <Routes>
-            {items.map(item => (
-              <Route
-                className="Route"
-                path={item.path}
-                element={item.element}
-                key={item.name}
-              />
-            ))}
-          </Routes>
-        </VStack>
-      </HStack>
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { InputGroup, Input, Button, InputRightElement } from '@chakra-ui/react';
+import { InputGroup, Input } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
-import { updateTodo } from '../redux/action';
+import { updateTodo } from '../../redux/action';
 
 function SetTodo() {
   const [typeValue, setTypeValue] = useState('');
@@ -27,6 +27,8 @@ function SetTodo() {
     <div>
       <InputGroup size="md" onKeyUp={handleEnter}>
         <Input
+          maxW="400"
+          margin="auto"
           placeholder="Todo"
           type={'text'}
           value={typeValue}

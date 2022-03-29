@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import SetTodo from '../../Component/SetTodo';
-import ListTodo from '../../Component/ListTodo';
-import Masthead from '../../Component/masthead';
+import SetTodo from '../../Component/TodoComponent/SetTodo';
+import ListTodo from '../../Component/TodoComponent/ListTodo';
+import Masthead from '../../Component/TodoComponent/masthead';
+import './style.scss';
 function Todo() {
   const todoList = useSelector(state => state.Todo.list);
   return (
-    <div>
-      <Masthead />
+    <div className="Todo__App">
+      <Masthead title="What's Up, Tan" />
       <SetTodo />
       <ListTodo todoList={todoList} />
     </div>

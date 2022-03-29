@@ -7,10 +7,9 @@ import {
   Spacer,
   Text,
   Icon,
-  Textarea,
 } from '@chakra-ui/react';
 import { AiTwotoneDelete, AiFillEdit } from 'react-icons/ai';
-import { CompleteTodoReducer, DeleteTodoReducer } from '../redux/action';
+import { CompleteTodoReducer, DeleteTodoReducer } from '../../redux/action';
 
 function ListTodo(props) {
   const { todoList } = props;

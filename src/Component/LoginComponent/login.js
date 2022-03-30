@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FormControl,
   FormLabel,
@@ -12,6 +12,7 @@ import {
   Container,
 } from '@chakra-ui/react';
 import { url } from '../../api/LoginUrl';
+import { useNavigate } from 'react-router-dom';
 //axios
 import axios from 'axios';
 
@@ -30,13 +31,14 @@ const Login = () => {
       .post(url, data) //post data to server)
       .then(res => {
         console.log(res);
-        console.log(res.data.token);
+        localStorage.setItem('token', res.data.token);
       })
       .catch(err => {
         console.log(err);
       });
     setUsername('');
     setPassword('');
+    navigate('/nav');
   };
   const handleChangeUser = e => {
     setUsername(e.target.value);
@@ -46,6 +48,14 @@ const Login = () => {
   };
   const isErrorUserName = username === '';
   const isErrorPassword = password === '';
+  const navigate = useNavigate();
+  //redirect to navbar if login success
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/nav');
+    }
+  }, [navigate]);
+
   return (
     <Center h="100vh" m={0}>
       <Container maxW="sm">

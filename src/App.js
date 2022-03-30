@@ -11,7 +11,6 @@ export const App = () => (
       <BrowserRouter>
         <Home />
       </BrowserRouter>
-      {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
     </ChakraProvider>
   </Provider>
 );

@@ -8,11 +8,10 @@ import {
   BreadcrumbLink,
   Avatar,
 } from '@chakra-ui/react';
+import { items } from '../../../Const/itemsChangePage';
 import avatar from '../../../assets/avatar.jpg';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 const NavBar = props => {
-  const { items } = props;
-  console.log(items);
   return (
     <HStack>
       <VStack spacing={4} h="100vh" align="flex-start">
@@ -34,16 +33,7 @@ const NavBar = props => {
         ))}
       </VStack>
       <VStack className="Home__Container">
-        <Routes>
-          {items.map(item => (
-            <Route
-              className="Route"
-              path={item.path}
-              element={item.element}
-              key={item.name}
-            />
-          ))}
-        </Routes>
+        <Outlet />
       </VStack>
     </HStack>
   );

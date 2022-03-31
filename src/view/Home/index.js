@@ -11,8 +11,11 @@ import ItemBlog from '../../Component/HomeComponent/Body/Blog';
 import ItemContact from '../../Component/HomeComponent/Body/Contact';
 import TodoApp from '../../view/Todo/Todo';
 import WeatherApp from '../../Component/WeatherApp/WeatherApp';
+import PrivateRoute from '../../service/PrivateRoute';
 import { useRoutes } from 'react-router-dom';
 import './style.scss';
+// Private Route
+
 const Home = () => {
   let RouterObject = [
     {
@@ -23,7 +26,11 @@ const Home = () => {
     {
       name: 'header',
       path: '/header',
-      element: <Header />,
+      element: (
+        <PrivateRoute>
+          <Header />
+        </PrivateRoute>
+      ),
       children: [
         {
           name: 'home',

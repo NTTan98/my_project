@@ -7,11 +7,20 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Avatar,
+  Button,
 } from '@chakra-ui/react';
 import { items } from '../../../Const/itemsChangePage';
 import avatar from '../../../assets/avatar.jpg';
 import { Link, Outlet } from 'react-router-dom';
-const NavBar = props => {
+import { useNavigate } from 'react-router-dom';
+
+const NavBar = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('auth');
+    navigate('/');
+  };
+
   return (
     <HStack>
       <VStack spacing={4} h="100vh" align="flex-start">
@@ -31,6 +40,14 @@ const NavBar = props => {
             </BreadcrumbItem>
           </Breadcrumb>
         ))}
+        <Button
+          variantColor="teal"
+          variant="outline"
+          size="sm"
+          onClick={handleLogout}
+        >
+          Logout
+        </Button>
       </VStack>
       <VStack className="Home__Container">
         <Outlet />

@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { url } from '../../api/LoginUrl';
 import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 //axios
 import axios from 'axios';
 
@@ -20,6 +21,10 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const isErrorUserName = username === '';
+  const isErrorPassword = password === '';
+  const navigate = useNavigate();
+
   const handleClick = () => setShow(!show);
   const data = {
     username: username,
@@ -28,17 +33,15 @@ const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
     axios
-      .post(url, data) //post data to server)
+      .post(url, data)
       .then(res => {
         console.log(res);
-        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('auth', res.data.token);
+        navigate('/header');
       })
       .catch(err => {
         console.log(err);
       });
-    setUsername('');
-    setPassword('');
-    navigate('/nav');
   };
   const handleChangeUser = e => {
     setUsername(e.target.value);
@@ -46,15 +49,10 @@ const Login = () => {
   const handleChangePassword = e => {
     setPassword(e.target.value);
   };
-  const isErrorUserName = username === '';
-  const isErrorPassword = password === '';
-  const navigate = useNavigate();
-  //redirect to navbar if login success
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      navigate('/nav');
-    }
-  }, [navigate]);
+  // if localStorage.getItem('auth') === true navigate('/header') else navigate('/')
+  if (localStorage.getItem('auth')) {
+    return <Navigate to="/header" />;
+  }
 
   return (
     <Center h="100vh" m={0}>

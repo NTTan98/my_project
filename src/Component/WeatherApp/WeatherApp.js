@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 import { Container, Input, FormControl, Text } from '@chakra-ui/react';
+import axios from 'axios';
+import { getAPIWeather } from '../../api/getAPIWeather';
 const WeatherApp = () => {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
@@ -10,12 +12,13 @@ const WeatherApp = () => {
       setError('Please enter a city');
     } else {
       setError('');
-      fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=57827271cac88faca3c697ee3ae49428`
-      )
-        .then(res => res.json())
-        .then(data => {
-          setWeather(data);
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${getAPIWeather.key}`
+        )
+        .then(res => {
+          setWeather(res.data);
+          console.log(res.data);
           setQuery('');
         })
         .catch(err => {
@@ -55,7 +58,16 @@ const WeatherApp = () => {
     return `${day} ${date} ${month} ${year}`;
   };
   return (
-    <Container className="Container__WeatherApp">
+    <Container
+      className={
+        typeof weather.main != 'undefined'
+          ? Math.round(weather.main.temp - 273.15) > 16
+            ? 'Container__WeatherApp'
+            : 'Container__WeatherApp Cold'
+          : 'Container__WeatherApp'
+      }
+      style={{ padding: '0' }}
+    >
       <Container className="Container__Main">
         <FormControl>
           <Input
@@ -71,19 +83,23 @@ const WeatherApp = () => {
             }}
           />
         </FormControl>
-        <Container className="Container__Info">
+        <Container className="Container__error">
           {error && <p className="error">{error}</p>}
+        </Container>
+        <Container className="Container__Info">
           {weather.main && (
             <Container className="weather-data">
-              <Text className="City">{weather.name}</Text>
+              <Text className="City">
+                {weather.name},{weather.sys.country}
+              </Text>
+              <Container className="Date">{dateBuilder(new Date())}</Container>
               <Text className="Temp">
                 {Math.round(weather.main.temp - 273.15)}
                 &deg;C
               </Text>
-              <Text className="Des">{weather.weather[0].description}</Text>
+              <Text className="Des">{weather.weather[0].main}</Text>
             </Container>
           )}
-          <Container className="Date">{dateBuilder(new Date())}</Container>
         </Container>
       </Container>
     </Container>

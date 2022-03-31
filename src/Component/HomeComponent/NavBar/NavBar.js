@@ -11,6 +11,8 @@ import {
 } from '@chakra-ui/react';
 import { items } from '../../../Const/itemsChangePage';
 import avatar from '../../../assets/avatar.jpg';
+import { ColorModeSwitcher } from '../../../ColorModeSwitcher/ColorModeSwitcher';
+
 import { Link, Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -40,14 +42,27 @@ const NavBar = () => {
             </BreadcrumbItem>
           </Breadcrumb>
         ))}
-        <Button
-          variantColor="teal"
-          variant="outline"
-          size="sm"
-          onClick={handleLogout}
-        >
-          Logout
-        </Button>
+        <Breadcrumb spacing="8px" pl={10} pb={5}>
+          <Button
+            style={{
+              //  style button logout
+              backgroundColor: '#ff0000',
+              color: '#fff',
+              borderRadius: '10px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              padding: '10px',
+            }}
+            variant="outline"
+            size="sm"
+            onClick={handleLogout}
+          >
+            LOGOUT
+          </Button>
+        </Breadcrumb>
+        <Breadcrumb spacing="8px" pl={10} pb={5}>
+          <ColorModeSwitcher />
+        </Breadcrumb>
       </VStack>
       <VStack className="Home__Container">
         <Outlet />

@@ -12,6 +12,8 @@ import {
 import { items } from '../../../Const/itemsChangePage';
 import avatar from '../../../assets/avatar.jpg';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher/ColorModeSwitcher';
+import { Icon } from '@chakra-ui/icons';
+import { FiLogOut } from 'react-icons/fi';
 
 import { Link, Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -56,6 +58,7 @@ const NavBar = () => {
             variant="outline"
             size="sm"
             onClick={handleLogout}
+            leftIcon={<Icon as={FiLogOut} />}
           >
             LOGOUT
           </Button>

@@ -28,7 +28,16 @@ function ListTodo(props) {
   return (
     <div>
       {todoList.map(todo => (
-        <Container maxW="400" key={todo.id} style={{ marginTop: '10px' }}>
+        <Container
+          maxW="400"
+          key={todo.id}
+          style={{
+            marginTop: '10px',
+            borderRadius: '5px',
+            padding: '10px',
+            boxShadow: '0px 0px 5px #eaeaea',
+          }}
+        >
           <Flex justify={'justifyContent'} align={'center'}>
             <Checkbox
               colorScheme="green"

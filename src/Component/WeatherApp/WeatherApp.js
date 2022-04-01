@@ -1,32 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
 import { Container, Input, FormControl, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import { getAPIWeather } from '../../api/getAPIWeather';
 const WeatherApp = () => {
-  const [query, setQuery] = useState('');
+  const [city, setCity] = useState('');
+  const [query, setQuery] = useState('ho chi minh');
   const [weather, setWeather] = useState({});
   const [error, setError] = useState('');
   const handleSubmit = e => {
-    if (query.length === 0) {
+    if (city.length === 0 && query.length === 0) {
       setError('Please enter a city');
     } else {
       setError('');
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${getAPIWeather.key}`
-        )
-        .then(res => {
-          setWeather(res.data);
-          console.log(res.data);
-          setQuery('');
-        })
-        .catch(err => {
-          setError('City not found');
-        });
+      setQuery(city);
+      setCity('');
     }
     e.preventDefault();
   };
+  useEffect(() => {
+    const getWeather = async () => {
+      const { data } = await axios.get(getAPIWeather.getWeather(query));
+      setWeather(data);
+    };
+    getWeather();
+  }, [query]);
   const dateBuilder = d => {
     let months = [
       'January',
@@ -74,8 +72,8 @@ const WeatherApp = () => {
             className="Input__WeatherApp"
             type="text"
             placeholder="City"
-            value={query}
-            onChange={e => setQuery(e.target.value)}
+            value={city}
+            onChange={e => setCity(e.target.value)}
             onKeyPress={e => {
               if (e.key === 'Enter') {
                 handleSubmit(e);
@@ -83,9 +81,6 @@ const WeatherApp = () => {
             }}
           />
         </FormControl>
-        <Container className="Container__error">
-          {error && <p className="error">{error}</p>}
-        </Container>
         <Container className="Container__Info">
           {weather.main && (
             <Container className="weather-data">

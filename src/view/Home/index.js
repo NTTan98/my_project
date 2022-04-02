@@ -7,7 +7,7 @@ import ItemResume from '../../Component/HomeComponent/Body/Resume';
 import ItemPortfolios from '../../Component/HomeComponent/Body/Portfolios/Portfolios';
 import ItemPortfolio from '../../Component/HomeComponent/Body/Portfolios/Portfolio';
 import ItemMenuPortfolio from '../../Component/HomeComponent/Body/Portfolios/MenuPort';
-import ItemBlog from '../../Component/HomeComponent/Body/Blog';
+import ItemCorona from '../../Component/HomeComponent/Body/CoronaTracking';
 import ItemContact from '../../Component/HomeComponent/Body/Contact';
 import TodoApp from '../../view/Todo/Todo';
 import WeatherApp from '../../Component/WeatherApp/WeatherApp';
@@ -77,9 +77,9 @@ const Home = () => {
           ],
         },
         {
-          name: 'blog',
-          path: '/header/blog',
-          element: <ItemBlog />,
+          name: 'corona',
+          path: '/header/corona',
+          element: <ItemCorona />,
         },
         {
           name: 'contact',

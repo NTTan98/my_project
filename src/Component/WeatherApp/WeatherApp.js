@@ -7,12 +7,10 @@ const WeatherApp = () => {
   const [city, setCity] = useState('');
   const [query, setQuery] = useState('ho chi minh');
   const [weather, setWeather] = useState({});
-  const [error, setError] = useState('');
   const handleSubmit = e => {
     if (city.length === 0 && query.length === 0) {
-      setError('Please enter a city');
+      alert('Please enter a city');
     } else {
-      setError('');
       setQuery(city);
       setCity('');
     }

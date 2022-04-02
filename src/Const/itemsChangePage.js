@@ -3,6 +3,6 @@ export const items = [
   { name: 'ABOUT', path: '/header/about' },
   { name: 'RESUME', path: '/header/resume' },
   { name: 'PORTFOLIO', path: '/header/portfolios' },
-  { name: 'BLOG', path: '/header/blog' },
+  { name: 'COVID 19', path: '/header/corona' },
   { name: 'CONTACT', path: '/header/contact' },
 ];

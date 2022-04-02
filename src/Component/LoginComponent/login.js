@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Heading,
   FormControl,
   FormLabel,
   FormHelperText,
@@ -35,7 +36,6 @@ const Login = () => {
     axios
       .post(url, data)
       .then(res => {
-        console.log(res);
         localStorage.setItem('auth', res.data.token);
         navigate('/header');
       })
@@ -56,7 +56,16 @@ const Login = () => {
 
   return (
     <Center h="100vh" m={0}>
-      <Container maxW="sm">
+      <Container
+        maxW="sm"
+        boxShadow={
+          '0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.1)'
+        }
+        borderRadius="10%"
+      >
+        <Heading as="h1" size="lg" mb={4} textAlign="center" paddingTop={4}>
+          Login
+        </Heading>
         <FormControl isInvalid={isErrorUserName}>
           <FormLabel htmlFor="user">Username</FormLabel>
           <Input
@@ -98,6 +107,7 @@ const Login = () => {
             mt={4}
             variantColor="teal"
             onClick={handleSubmit}
+            mb={4}
             isDisabled={isErrorPassword || isErrorUserName}
           >
             Login

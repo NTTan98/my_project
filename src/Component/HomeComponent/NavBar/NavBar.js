@@ -55,7 +55,15 @@ const NavBar = () => {
         </Breadcrumb>
       </VStack>
       <VStack spacing={4} align="flex-start"></VStack>
-      <VStack className="Home__Container">
+      <VStack
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
         <Outlet />
       </VStack>
     </HStack>

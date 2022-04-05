@@ -13,7 +13,6 @@ import TodoApp from '../../view/Todo/Todo';
 import WeatherApp from '../../Component/WeatherApp/WeatherApp';
 import PrivateRoute from '../../service/PrivateRoute';
 import { useRoutes } from 'react-router-dom';
-import './style.scss';
 // Private Route
 
 const Home = () => {
@@ -33,6 +32,7 @@ const Home = () => {
       ),
       children: [
         {
+          index: true,
           name: 'home',
           path: '/header/home',
           element: <ItemHome />,

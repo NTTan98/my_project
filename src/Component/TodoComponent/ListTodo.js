@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   Container,
@@ -13,6 +13,7 @@ import { CompleteTodoReducer, DeleteTodoReducer } from '../../redux/action';
 
 function ListTodo(props) {
   const { todoList } = props;
+  const [edit, setEdit] = useState();
   // Update status Todo
   const dispatch = useDispatch();
   const handleClickId = todo => {
@@ -24,6 +25,10 @@ function ListTodo(props) {
     const idSelectDelete = todo.id;
     const action = DeleteTodoReducer(idSelectDelete);
     dispatch(action);
+  };
+  const handleClickEdit = todo => {
+    setEdit(todo);
+    console.log('render edit', todo);
   };
   return (
     <div>
@@ -66,6 +71,7 @@ function ListTodo(props) {
             <Icon
               style={{ cursor: 'pointer', marginLeft: '10px', color: 'blue' }}
               as={AiFillEdit}
+              onClick={() => handleClickEdit(todo)}
             />
           </Flex>
         </Container>

@@ -103,6 +103,7 @@ const CoronaTracking = () => {
         style={{
           width: '50%',
           marginBottom: '1rem',
+          boxShadow: '0px 0px 5px #eaeaea',
         }}
       />
       <Heading

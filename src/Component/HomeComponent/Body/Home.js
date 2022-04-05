@@ -5,11 +5,7 @@ const Home = () => {
   return (
     <div>
       <Heading>Hi, I am Tan Nguyen</Heading>
-      <Text>
-        I am a frontend web developer. I can provide clean code and pixel
-        perfect design. I also make website more & more interactive with web
-        animations.
-      </Text>
+      <Text>I am a frontend web developer.</Text>
     </div>
   );
 };

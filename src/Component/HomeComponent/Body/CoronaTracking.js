@@ -114,7 +114,7 @@ const CoronaTracking = () => {
           fontWeight: 'bold',
         }}
       >
-        COVID 19 Chart{' Of '}
+        COVID 19 Chart{' in the '}
         {corona !== null ? data.name : ''}
       </Heading>
       <div

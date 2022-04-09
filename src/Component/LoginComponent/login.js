@@ -22,8 +22,8 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const isErrorUserName = username === '';
-  const isErrorPassword = password === '';
+  const [isErrorUserName, setIsErrorUserName] = useState(false);
+  const [isErrorPassword, setIsErrorPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = () => setShow(!show);
@@ -32,16 +32,33 @@ const Login = () => {
     password: password,
   };
   const handleSubmit = e => {
-    e.preventDefault();
-    axios
-      .post(url, data)
-      .then(res => {
-        localStorage.setItem('auth', res.data.token);
-        navigate('/header');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // if (username === '' || password === '') {
+    //   setIsErrorUserName(true);
+    //   setIsErrorPassword(true);
+    // }
+    if (username === '') {
+      setIsErrorUserName(true);
+    } else {
+      setIsErrorUserName(false);
+    }
+
+    if (password === '') {
+      setIsErrorPassword(true);
+    } else {
+      setIsErrorPassword(false);
+    }
+    if (username !== '' && password !== '') {
+      e.preventDefault();
+      axios
+        .post(url, data)
+        .then(res => {
+          localStorage.setItem('auth', res.data.token);
+          navigate('/header');
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
   const handleChangeUser = e => {
     setUsername(e.target.value);
@@ -49,9 +66,8 @@ const Login = () => {
   const handleChangePassword = e => {
     setPassword(e.target.value);
   };
-  // if localStorage.getItem('auth') === true navigate('/header') else navigate('/')
   if (localStorage.getItem('auth')) {
-    return <Navigate to="/header" />;
+    return <Navigate to="/header/home" />;
   }
 
   return (
@@ -103,13 +119,7 @@ const Login = () => {
           ) : (
             <FormErrorMessage>Password is required.</FormErrorMessage>
           )}
-          <Button
-            mt={4}
-            variantColor="teal"
-            onClick={handleSubmit}
-            mb={4}
-            isDisabled={isErrorPassword || isErrorUserName}
-          >
+          <Button mt={4} variantColor="teal" onClick={handleSubmit} mb={4}>
             Login
           </Button>
         </FormControl>

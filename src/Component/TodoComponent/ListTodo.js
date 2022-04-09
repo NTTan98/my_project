@@ -40,7 +40,7 @@ function ListTodo(props) {
             marginTop: '10px',
             borderRadius: '5px',
             padding: '10px',
-            boxShadow: '0px 0px 5px #eaeaea',
+            boxShadow: '0px 0px 10px #00bfff',
           }}
         >
           <Flex justify={'justifyContent'} align={'center'}>

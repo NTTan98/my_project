@@ -1,6 +1,8 @@
 // make portfolio page
 import React from 'react';
 import {
+  Flex,
+  Box,
   VStack,
   HStack,
   Breadcrumb,
@@ -12,10 +14,8 @@ import { items } from '../../../Const/itemsChangePage';
 import avatar from '../../../assets/avatar.jpg';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher/ColorModeSwitcher';
 import Logout from '../../LoginComponent/logout';
-import { Icon } from '@chakra-ui/icons';
-import { FiMenu } from 'react-icons/fi';
-
 import { NavLink, Outlet } from 'react-router-dom';
+import './style.scss';
 
 const NavBar = () => {
   let activeStyle = {
@@ -24,8 +24,8 @@ const NavBar = () => {
   };
 
   return (
-    <HStack>
-      <VStack spacing={4} h="100vh" align="flex-start">
+    <Flex>
+      <Box className="navbar">
         <Avatar
           borderRadius="full"
           boxSize="100px"
@@ -34,7 +34,7 @@ const NavBar = () => {
           margin={5}
         />
         {items.map((item, index) => (
-          <Breadcrumb spacing="8px" pl={8} key={index}>
+          <Breadcrumb pl={8} py="13px" key={index}>
             <BreadcrumbItem>
               <BreadcrumbLink
                 as={NavLink}
@@ -47,26 +47,17 @@ const NavBar = () => {
             </BreadcrumbItem>
           </Breadcrumb>
         ))}
-        <Breadcrumb spacing="8px" pl={8} pt={2}>
+        <Breadcrumb py="13px" pl={8} pt={2}>
           <Logout />
         </Breadcrumb>
-        <Breadcrumb spacing="8px" pl={8} pb={5}>
+        <Breadcrumb pl={8} pb={5}>
           <ColorModeSwitcher />
         </Breadcrumb>
-      </VStack>
-      <VStack spacing={4} align="flex-start"></VStack>
-      <VStack
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          width: '100vw',
-          height: '100vh',
-        }}
-      >
+      </Box>
+      <Box className="content__nav" flex="1">
         <Outlet />
-      </VStack>
-    </HStack>
+      </Box>
+    </Flex>
   );
 };
 

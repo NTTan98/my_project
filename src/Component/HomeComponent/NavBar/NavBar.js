@@ -1,10 +1,7 @@
-// make portfolio page
 import React from 'react';
 import {
   Flex,
   Box,
-  VStack,
-  HStack,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -24,7 +21,7 @@ const NavBar = () => {
   };
 
   return (
-    <Flex>
+    <Flex w="100vw">
       <Box className="navbar">
         <Avatar
           borderRadius="full"

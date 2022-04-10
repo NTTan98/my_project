@@ -1,9 +1,4 @@
-import {
-  ChangePage,
-  CompleteTodo,
-  DeleteTodo,
-  ListTodo,
-} from './../Const/constant';
+import { CompleteTodo, DeleteTodo, ListTodo } from './../Const/constant';
 export const updateTodo = value => {
   return {
     type: ListTodo,

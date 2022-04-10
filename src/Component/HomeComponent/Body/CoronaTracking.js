@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { url } from '../../../api/CoronaAPI.js';
-import { Grid, Heading, Input } from '@chakra-ui/react';
+import { Heading, Input } from '@chakra-ui/react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import _ from 'lodash';
 ChartJS.register(ArcElement, Tooltip, Legend);
 const CoronaTracking = () => {
   const [corona, setCorona] = useState(null);

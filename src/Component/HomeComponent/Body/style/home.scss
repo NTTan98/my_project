@@ -8,6 +8,7 @@
   .Home__Avt {
     width: 25%;
     margin-left: 3rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     border-radius: 250px 750px 250px 750px / 750px 250px 750px 250px;
     animation: wobble 15s ease-in-out alternate infinite;

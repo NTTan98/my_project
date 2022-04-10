@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^12.8.3",
+    "3d-react-carousal": "^5.0.0",
     "axios": "^0.26.1",
     "chart.js": "^3.7.1",
     "framer-motion": "^4.1.17",
@@ -23,6 +24,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.28.1",
     "redux": "^4.1.2",
     "sass": "^1.49.9",
     "web-vitals": "^0.2.4"

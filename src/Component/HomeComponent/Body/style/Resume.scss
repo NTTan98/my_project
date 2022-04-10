@@ -1,0 +1,82 @@
+.Resume {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  width: 100%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  .Resume__Skills__List {
+    margin: 0 auto;
+    width: 40%;
+    .Resume__Skill:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    .Resume__Skill__Details {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .Resume__Skill__Bar {
+      position: relative;
+      border: 2px solid #0d96e0;
+      border-radius: 20px;
+      div {
+        position: relative;
+        width: 0;
+        height: 9px;
+        border-radius: 10px;
+        background-color: #0d96e0;
+      }
+    }
+  }
+}
+
+#Resume__Skill__Html__Bar {
+  animation: html-fill 2s forwards;
+}
+@keyframes html-fill {
+  100% {
+    width: 70%;
+  }
+}
+
+#Resume__Skill__Css__Bar {
+  animation: css-fill 2s forwards;
+}
+@keyframes css-fill {
+  100% {
+    width: 60%;
+  }
+}
+#Resume__Skill__Sass__Bar {
+  animation: sass-fill 2s forwards;
+}
+@keyframes sass-fill {
+  100% {
+    width: 60%;
+  }
+}
+#Resume__Skill__Js__Bar {
+  animation: js-fill 2s forwards;
+}
+@keyframes js-fill {
+  100% {
+    width: 50%;
+  }
+}
+#Resume__Skill__React__Bar {
+  animation: react-fill 2s forwards;
+}
+@keyframes react-fill {
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

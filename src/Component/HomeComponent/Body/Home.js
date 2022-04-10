@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar from '../../../assets/avatar.jpg';
 import { FaFacebook, FaTwitter, FaInstagram, FaDribbble } from 'react-icons/fa';
-import './style/home.scss';
+import './style/Home.scss';
 const Home = () => {
   return (
     <div className="Home">

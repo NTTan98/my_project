@@ -15,7 +15,6 @@ import {
 import { url } from '../../api/LoginUrl';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-//axios
 import axios from 'axios';
 
 const Login = () => {
@@ -32,10 +31,6 @@ const Login = () => {
     password: password,
   };
   const handleSubmit = e => {
-    // if (username === '' || password === '') {
-    //   setIsErrorUserName(true);
-    //   setIsErrorPassword(true);
-    // }
     if (username === '') {
       setIsErrorUserName(true);
     } else {

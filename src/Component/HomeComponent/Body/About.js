@@ -18,6 +18,7 @@ const About = () => {
         <Heading as="h1" size="2xl">
           ABOUT ME
         </Heading>
+        <div className="About__Me__Decoration"></div>
         <div className="About__Me__Content">
           <div className="About__Me__Content__Avt">
             <img src={Avatar} alt="avatar" />

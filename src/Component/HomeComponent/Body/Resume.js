@@ -1,64 +1,78 @@
 import React from 'react';
-import LogoHtml from '../../../assets/logohtml.svg';
-import LogoCss from '../../../assets/logocss.svg';
-import LogoSass from '../../../assets/logosass.svg';
-import LogoJs from '../../../assets/logojs.svg';
-import LogoReact from '../../../assets/logoreact.svg';
 
-import { Heading } from '@chakra-ui/react';
+import { Heading, Text, Box } from '@chakra-ui/react';
 import './style/Resume.scss';
+const Skills = [
+  {
+    name: 'HTML',
+    value: 70,
+    id: 'Resume__Skill__Html__Bar',
+  },
+  {
+    name: 'CSS',
+    value: 60,
+    id: 'Resume__Skill__Css__Bar',
+  },
+  {
+    name: 'SASS',
+    value: 60,
+    id: 'Resume__Skill__Sass__Bar',
+  },
+  {
+    name: 'JavaScript',
+    value: 50,
+    id: 'Resume__Skill__Js__Bar',
+  },
+  {
+    name: 'ReactJs',
+    value: 50,
+    id: 'Resume__Skill__React__Bar',
+  },
+];
+
 const Resume = () => {
   return (
     <div className="Resume">
       <div className="Resume__Skill">
         <Heading as="h1" size="2xl">
-          My Skills
+          Skills
         </Heading>
+        <div className="Resume__Skill__Decoration"></div>
         <div className="Resume__Skills__List">
-          <div class="Resume__Skill">
-            <div class="Resume__Skill__Details">
-              <span>HTML</span>
-              <span>70%</span>
+          {Skills.map(skill => (
+            <div className="Resume__Skill">
+              <div className="Resume__Skill__Details">
+                <span>{skill.name}</span>
+                <span>{skill.value}%</span>
+              </div>
+              <div className="Resume__Skill__Bar">
+                <div id={skill.id}></div>
+              </div>
             </div>
-            <div class="Resume__Skill__Bar">
-              <div id="Resume__Skill__Html__Bar"></div>
-            </div>
+          ))}
+        </div>
+      </div>
+      <div className="Resume__Education">
+        <Heading as="h1" size="2xl">
+          Education
+        </Heading>
+        <div className="Resume__Education__Decoration"></div>
+        <div className="Resume__Education__TimeLine">
+          <div className="Resume__Education__TimeLine__Container Left">
+            <Box className="Resume__Education__TimeLine__Content">
+              <Heading>2019 - 2020</Heading>
+              <Text>
+                lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </Text>
+            </Box>
           </div>
-          <div class="Resume__Skill">
-            <div class="Resume__Skill__Details">
-              <span>CSS</span>
-              <span>60%</span>
-            </div>
-            <div class="Resume__Skill__Bar">
-              <div id="Resume__Skill__Css__Bar"></div>
-            </div>
-          </div>
-          <div class="Resume__Skill">
-            <div class="Resume__Skill__Details">
-              <span>SASS</span>
-              <span>60%</span>
-            </div>
-            <div class="Resume__Skill__Bar">
-              <div id="Resume__Skill__Sass__Bar"></div>
-            </div>
-          </div>
-          <div class="Resume__Skill">
-            <div class="Resume__Skill__Details">
-              <span>JavaScrip</span>
-              <span>50%</span>
-            </div>
-            <div class="Resume__Skill__Bar">
-              <div id="Resume__Skill__Js__Bar"></div>
-            </div>
-          </div>
-          <div class="Resume__Skill">
-            <div class="Resume__Skill__Details">
-              <span>ReactJs</span>
-              <span>50%</span>
-            </div>
-            <div class="Resume__Skill__Bar">
-              <div id="Resume__Skill__React__Bar"></div>
-            </div>
+          <div className="Resume__Education__TimeLine__Container Right">
+            <Box className="Resume__Education__TimeLine__Content">
+              <Heading>2019 - 2020</Heading>
+              <Text>
+                lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </Text>
+            </Box>
           </div>
         </div>
       </div>

@@ -63,7 +63,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
   if (localStorage.getItem('auth')) {
-    return <Navigate to="/header/home" />;
+    return <Navigate to="/header" />;
   }
 
   return (

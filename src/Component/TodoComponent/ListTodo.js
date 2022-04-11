@@ -13,7 +13,6 @@ import { CompleteTodoReducer, DeleteTodoReducer } from '../../redux/action';
 
 function ListTodo(props) {
   const { todoList } = props;
-  const [edit, setEdit] = useState();
   // Update status Todo
   const dispatch = useDispatch();
   const handleClickId = todo => {
@@ -26,10 +25,7 @@ function ListTodo(props) {
     const action = DeleteTodoReducer(idSelectDelete);
     dispatch(action);
   };
-  const handleClickEdit = todo => {
-    setEdit(todo);
-    console.log('render edit', todo);
-  };
+
   return (
     <div>
       {todoList.map(todo => (
@@ -45,9 +41,7 @@ function ListTodo(props) {
         >
           <Flex justify={'justifyContent'} align={'center'}>
             <Checkbox
-              colorScheme="green"
               spacing="1rem"
-              iconColor="red.400"
               iconSize="1rem"
               onChange={() => handleClickId(todo)}
             >
@@ -64,14 +58,10 @@ function ListTodo(props) {
             </Checkbox>
             <Spacer />
             <Icon
-              style={{ cursor: 'pointer', color: 'red' }}
+              color="red.500"
+              cursor="pointer"
               as={AiTwotoneDelete}
               onClick={() => handleClickDelete(todo)}
-            />
-            <Icon
-              style={{ cursor: 'pointer', marginLeft: '10px', color: 'blue' }}
-              as={AiFillEdit}
-              onClick={() => handleClickEdit(todo)}
             />
           </Flex>
         </Container>

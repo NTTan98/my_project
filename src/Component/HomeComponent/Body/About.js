@@ -14,6 +14,9 @@ import {
 const About = () => {
   return (
     <div className="About">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
       <div className="About__Me">
         <Heading as="h1" size="2xl">
           ABOUT ME

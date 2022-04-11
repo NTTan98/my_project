@@ -33,6 +33,9 @@ const Skills = [
 const Resume = () => {
   return (
     <div className="Resume">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
       <div className="Resume__Skill">
         <Heading as="h1" size="2xl">
           Skills

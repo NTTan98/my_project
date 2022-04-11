@@ -4,12 +4,14 @@
   box-sizing: border-box;
 }
 .Container__WeatherApp {
+  animation: fadeIn 0.5s ease-in-out;
   background-image: url(../../assets/warm-bg.jpg);
   background-size: cover;
   background-position: bottom;
   transition: background-image 0.5s ease-in-out;
 }
 .Cold {
+  animation: fadeIn 0.5s ease-in-out;
   background-image: url(../../assets/cold-bg.jpg);
 }
 
@@ -79,5 +81,14 @@
       color: #fff;
       margin-bottom: 10px;
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

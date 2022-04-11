@@ -3,11 +3,9 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    // image cover
     background-size: cover;
     background-position: center;
     &:hover {
-      //transition zoom
       transform: scale(1.1);
     }
   }
@@ -15,11 +13,9 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    // image cover
     background-size: cover;
     background-position: center;
     &:hover {
-      //transition zoom
       transform: scale(1.1);
     }
   }

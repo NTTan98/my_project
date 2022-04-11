@@ -34,7 +34,6 @@ const Home = () => {
         {
           index: true,
           name: 'home',
-          path: '/header/home',
           element: <ItemHome />,
         },
         {

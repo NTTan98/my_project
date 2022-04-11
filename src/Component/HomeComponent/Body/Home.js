@@ -5,6 +5,9 @@ import './style/Home.scss';
 const Home = () => {
   return (
     <div className="Home">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
       <div className="Home__Avt">
         <img src={Avatar} alt="avatar" />
       </div>

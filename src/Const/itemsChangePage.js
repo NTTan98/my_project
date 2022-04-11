@@ -1,5 +1,5 @@
 export const items = [
-  { name: 'HOME', path: '/header/home' },
+  { name: 'HOME', path: '/header' },
   { name: 'ABOUT', path: '/header/about' },
   { name: 'RESUME', path: '/header/resume' },
   { name: 'PORTFOLIO', path: '/header/portfolios' },

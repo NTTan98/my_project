@@ -16,6 +16,7 @@ import { url } from '../../api/LoginUrl';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
+import './login.scss';
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -66,7 +67,10 @@ const Login = () => {
   }
 
   return (
-    <Center h="100vh" m={0}>
+    <Center h="100vh" m={0} className="Login__Bg">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
       <Container
         maxW="sm"
         boxShadow={
@@ -74,11 +78,20 @@ const Login = () => {
         }
         borderRadius="10%"
       >
-        <Heading as="h1" size="lg" mb={4} textAlign="center" paddingTop={4}>
+        <Heading
+          as="h1"
+          size="lg"
+          mb={4}
+          textAlign="center"
+          paddingTop={4}
+          color={'white'}
+        >
           Login
         </Heading>
         <FormControl isInvalid={isErrorUserName}>
-          <FormLabel htmlFor="user">Username</FormLabel>
+          <FormLabel htmlFor="user" color={'white'}>
+            Username
+          </FormLabel>
           <Input
             value={username}
             id="user"
@@ -93,7 +106,9 @@ const Login = () => {
           )}
         </FormControl>
         <FormControl isInvalid={isErrorPassword}>
-          <FormLabel htmlFor="password">Password</FormLabel>
+          <FormLabel htmlFor="password" color={'white'}>
+            Password
+          </FormLabel>
           <InputGroup size="md">
             <Input
               value={password}
@@ -102,6 +117,7 @@ const Login = () => {
               placeholder="Enter password"
               w={300}
               onChange={handleChangePassword}
+              color={'white'}
             />
             <InputRightElement pos="relative">
               <Button ml={10} size="sm" pos="absolute" onClick={handleClick}>
@@ -114,7 +130,7 @@ const Login = () => {
           ) : (
             <FormErrorMessage>Password is required.</FormErrorMessage>
           )}
-          <Button mt={4} variantColor="teal" onClick={handleSubmit} mb={4}>
+          <Button mt={4} onClick={handleSubmit} mb={4}>
             Login
           </Button>
         </FormControl>

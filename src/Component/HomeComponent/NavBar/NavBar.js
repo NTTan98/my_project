@@ -32,12 +32,23 @@ const NavBar = () => {
         />
         {items.map((item, index) => (
           <Breadcrumb pl={8} py="13px" key={index}>
-            <BreadcrumbItem>
+            <BreadcrumbItem
+              _hover={{
+                boxShadow: '0px 0px 10px #00bfff',
+                borderRadius: '10px',
+                cursor: 'pointer',
+              }}
+            >
               <BreadcrumbLink
                 as={NavLink}
                 to={item.path}
                 padding="0.5rem"
-                style={({ isActive }) => (isActive ? activeStyle : null)}
+                _hover={{
+                  textDecoration: 'none',
+                }}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
               >
                 {item.name}
               </BreadcrumbLink>

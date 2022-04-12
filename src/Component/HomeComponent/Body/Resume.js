@@ -43,7 +43,7 @@ const Resume = () => {
         <div className="Resume__Skill__Decoration"></div>
         <div className="Resume__Skills__List">
           {Skills.map(skill => (
-            <div className="Resume__Skill">
+            <div className="Resume__Skill" key={skill.id}>
               <div className="Resume__Skill__Details">
                 <span>{skill.name}</span>
                 <span>{skill.value}%</span>

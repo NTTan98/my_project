@@ -15,11 +15,6 @@ import { NavLink, Outlet } from 'react-router-dom';
 import './style.scss';
 
 const NavBar = () => {
-  let activeStyle = {
-    boxShadow: '0px 0px 10px #00bfff',
-    borderRadius: '10px',
-  };
-
   return (
     <Flex w="100vw">
       <Box className="navbar">

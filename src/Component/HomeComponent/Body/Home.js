@@ -15,7 +15,7 @@ const Home = () => {
         <span className="Home__Info__Name">NGUYEN THANH TAN</span>
         <span className="Home__Info__Des">
           Im a Front-End developer, I love to learn new things and
-        </span>{' '}
+        </span>
         <span className="Home__Info__Des">
           am passionate about web development.
         </span>

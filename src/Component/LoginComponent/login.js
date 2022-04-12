@@ -97,6 +97,7 @@ const Login = () => {
             id="user"
             placeholder="Enter your username"
             w={300}
+            color={'white'}
             onChange={handleChangeUser}
           />
           {!isErrorUserName ? (

@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.scss';
+import { ROUTER_OBJECT } from '../../bootstrap/constants';
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -49,7 +50,7 @@ const Login = () => {
         .post(url, data)
         .then(res => {
           localStorage.setItem('auth', res.data.token);
-          navigate('/header');
+          navigate(ROUTER_OBJECT[1].path);
         })
         .catch(err => {
           console.log(err);
@@ -63,7 +64,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
   if (localStorage.getItem('auth')) {
-    return <Navigate to="/header" />;
+    return <Navigate to={ROUTER_OBJECT[1].path} />;
   }
 
   return (

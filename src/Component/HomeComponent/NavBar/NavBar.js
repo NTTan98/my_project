@@ -13,6 +13,7 @@ import { ColorModeSwitcher } from '../../../ColorModeSwitcher/ColorModeSwitcher'
 import Logout from '../../LoginComponent/logout';
 import { NavLink, Outlet } from 'react-router-dom';
 import './style.scss';
+import { ROUTER_NAVBAR } from '../../../bootstrap/constants';
 
 const NavBar = () => {
   return (
@@ -25,7 +26,7 @@ const NavBar = () => {
           alt="avatar"
           margin={5}
         />
-        {items.map((item, index) => (
+        {ROUTER_NAVBAR.map((item, index) => (
           <Breadcrumb pl={8} py="13px" key={index}>
             <BreadcrumbItem
               _hover={{

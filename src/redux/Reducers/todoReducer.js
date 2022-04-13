@@ -1,5 +1,5 @@
-import { CompleteTodo, DeleteTodo, ListTodo } from './../../Const/constant';
 import _ from 'lodash';
+import { REDUX_CONSTANT } from '../../bootstrap/constants';
 const initialState = {
   list: [],
   idActive: null,
@@ -8,7 +8,7 @@ const initialState = {
 const todoReducer = (state = initialState, action) => {
   // eslint-disable-next-line default-case
   switch (action.type) {
-    case ListTodo: {
+    case REDUX_CONSTANT.LIST_TODO: {
       const newList = [action.payload, ...state.list];
       console.log(newList);
       return {
@@ -16,7 +16,7 @@ const todoReducer = (state = initialState, action) => {
         list: newList,
       };
     }
-    case CompleteTodo: {
+    case REDUX_CONSTANT.COMPLETE_TODO: {
       const newIdActive = action.payload;
       for (let i = 0; i < state.list.length; i++) {
         if (newIdActive === state.list[i].id) {
@@ -28,7 +28,7 @@ const todoReducer = (state = initialState, action) => {
         idActive: newIdActive,
       };
     }
-    case DeleteTodo: {
+    case REDUX_CONSTANT.DELETE_TODO: {
       const newIdDelete = action.payload;
       //filter data
       const newList = state.list.filter(item => item.id !== newIdDelete);

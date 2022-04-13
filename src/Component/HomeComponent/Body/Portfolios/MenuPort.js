@@ -5,19 +5,21 @@ import TodoImage from '../../../../assets/todo.jpg';
 import WeatherImage from '../../../../assets/weather.jpg';
 
 import './style.scss';
+import { ROUTER_PORTFOLIO } from '../../../../bootstrap/constants';
 
 const MenuPort = () => {
   return (
     <div className="menu__Port">
       <Flex justify="space-around" align="center" h="100vh">
-        <Link to="/header/portfolios/:id/todo">
-          <Image src={TodoImage} className="menu__Port__Todo" />
-        </Link>
-        <Flex>
-          <Link to="/header/portfolios/:id/weather">
-            <Image src={WeatherImage} className="menu__Port__Weather" />
+        {ROUTER_PORTFOLIO.map(item => (
+          <Link to={item.path} key={item.name}>
+            <Image
+              src={item.name === 'Todo' ? TodoImage : WeatherImage}
+              alt={item.name}
+              className="menu__Port__Image"
+            />
           </Link>
-        </Flex>
+        ))}
       </Flex>
     </div>
   );

@@ -11,6 +11,8 @@ import ItemContact from '../Component/HomeComponent/Body/Contact';
 import TodoApp from '../view/Todo/Todo';
 import WeatherApp from '../Component/WeatherApp/WeatherApp';
 import PrivateRoute from '../service/PrivateRoute';
+import TodoImage from '../assets/todo.jpg';
+import WeatherImage from '../assets/weather.jpg';
 
 export const ROUTER_OBJECT = [
   {
@@ -110,5 +112,55 @@ export const ROUTER_NAVBAR = [
   {
     name: 'CONTACT',
     path: '/contact',
+  },
+];
+
+export const ROUTER_PORTFOLIO = [
+  {
+    path: '/portfolios/todo',
+    name: 'Todo',
+    image: TodoImage,
+  },
+  {
+    path: '/portfolios/weather',
+    name: 'Weather',
+    image: WeatherImage,
+  },
+];
+
+export const REDUX_CONSTANT = {
+  LIST_TODO: 'LIST_TODO',
+  COMPLETE_TODO: 'COMPLETE_TODO',
+  DELETE_TODO: 'DELETE_TODO',
+  CHANGE_PAGE: 'CHANGE_PAGE',
+};
+
+export const MONTHS_DAYS = [
+  {
+    Days: [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ],
+  },
+  {
+    Months: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
   },
 ];

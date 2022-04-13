@@ -7,7 +7,6 @@ import {
   BreadcrumbLink,
   Avatar,
 } from '@chakra-ui/react';
-import { items } from '../../../Const/itemsChangePage';
 import avatar from '../../../assets/avatar.jpg';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher/ColorModeSwitcher';
 import Logout from '../../LoginComponent/logout';

@@ -10,7 +10,6 @@ const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case REDUX_CONSTANT.LIST_TODO: {
       const newList = [action.payload, ...state.list];
-      console.log(newList);
       return {
         ...state,
         list: newList,

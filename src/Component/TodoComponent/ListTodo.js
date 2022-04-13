@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   Container,
@@ -6,13 +6,20 @@ import {
   Flex,
   Spacer,
   Text,
-  Icon,
+  Button,
+  Editable,
+  EditableTextarea,
+  EditablePreview,
+  useDisclosure,
 } from '@chakra-ui/react';
-import { AiTwotoneDelete, AiFillEdit } from 'react-icons/ai';
 import { CompleteTodoReducer, DeleteTodoReducer } from '../../redux/action';
+import ModalDelete from '../ModalDelete/ModalDelete';
 
 function ListTodo(props) {
   const { todoList } = props;
+  const [idSelectDelete, setIdSelectDelete] = useState(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef();
   // Update status Todo
   const dispatch = useDispatch();
   const handleClickId = todo => {
@@ -20,8 +27,10 @@ function ListTodo(props) {
     const action = CompleteTodoReducer(idSelectActive);
     dispatch(action);
   };
-  const handleClickDelete = todo => {
-    const idSelectDelete = todo.id;
+  const idSelect = todo => {
+    setIdSelectDelete(todo.id);
+  };
+  const handleClickDelete = () => {
     const action = DeleteTodoReducer(idSelectDelete);
     dispatch(action);
   };
@@ -57,15 +66,24 @@ function ListTodo(props) {
               </Text>
             </Checkbox>
             <Spacer />
-            <Icon
-              color="red.500"
-              cursor="pointer"
-              as={AiTwotoneDelete}
-              onClick={() => handleClickDelete(todo)}
-            />
+            <Button
+              colorScheme="red"
+              onClick={() => {
+                onOpen();
+                idSelect(todo);
+              }}
+            >
+              Delete
+            </Button>
           </Flex>
         </Container>
       ))}
+      <ModalDelete
+        isOpen={isOpen}
+        onClose={onClose}
+        cancelRef={cancelRef}
+        handleClickDelete={handleClickDelete}
+      />
     </div>
   );
 }

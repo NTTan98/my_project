@@ -18,6 +18,7 @@ import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.scss';
 import { ROUTER_OBJECT } from '../../bootstrap/constants';
+import AnimationStar from '../Animation/AnimationStar';
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -53,7 +54,10 @@ const Login = () => {
           navigate(ROUTER_OBJECT[1].path);
         })
         .catch(err => {
-          console.log(err);
+          if (err.response.status) {
+            setIsErrorPassword(true);
+            setIsErrorUserName(true);
+          }
         });
     }
   };
@@ -68,76 +72,76 @@ const Login = () => {
   }
 
   return (
-    <Center h="100vh" m={0} className="Login__Bg">
-      <div id="stars"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
-      <Container
-        maxW="sm"
-        boxShadow={
-          '0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.1)'
-        }
-        borderRadius="10%"
-      >
-        <Heading
-          as="h1"
-          size="lg"
-          mb={4}
-          textAlign="center"
-          paddingTop={4}
-          color={'white'}
+    <div>
+      <Center h="100vh" m={0} className="Login__Bg">
+        <AnimationStar />
+        <Container
+          maxW="sm"
+          boxShadow={
+            '0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.1)'
+          }
+          borderRadius="10%"
         >
-          Login
-        </Heading>
-        <FormControl isInvalid={isErrorUserName}>
-          <FormLabel htmlFor="user" color={'white'}>
-            Username
-          </FormLabel>
-          <Input
-            value={username}
-            id="user"
-            placeholder="Enter your username"
-            w={300}
+          <Heading
+            as="h1"
+            size="lg"
+            mb={4}
+            textAlign="center"
+            paddingTop={4}
             color={'white'}
-            onChange={handleChangeUser}
-          />
-          {!isErrorUserName ? (
-            <FormHelperText>Enter the Username.</FormHelperText>
-          ) : (
-            <FormErrorMessage>Username is required.</FormErrorMessage>
-          )}
-        </FormControl>
-        <FormControl isInvalid={isErrorPassword}>
-          <FormLabel htmlFor="password" color={'white'}>
-            Password
-          </FormLabel>
-          <InputGroup size="md">
-            <Input
-              value={password}
-              pr="4.5rem"
-              type={show ? 'text' : 'password'}
-              placeholder="Enter password"
-              w={300}
-              onChange={handleChangePassword}
-              color={'white'}
-            />
-            <InputRightElement pos="relative">
-              <Button ml={10} size="sm" pos="absolute" onClick={handleClick}>
-                {show ? 'Hide' : 'Show'}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-          {!isErrorPassword ? (
-            <FormHelperText>Enter the Password.</FormHelperText>
-          ) : (
-            <FormErrorMessage>Password is required.</FormErrorMessage>
-          )}
-          <Button mt={4} onClick={handleSubmit} mb={4}>
+          >
             Login
-          </Button>
-        </FormControl>
-      </Container>
-    </Center>
+          </Heading>
+          <FormControl isInvalid={isErrorUserName}>
+            <FormLabel htmlFor="user" color={'white'}>
+              Username
+            </FormLabel>
+            <Input
+              value={username}
+              id="user"
+              placeholder="Enter your username"
+              w={300}
+              color={'white'}
+              onChange={handleChangeUser}
+            />
+            {!isErrorUserName ? (
+              <FormHelperText>Enter the Username.</FormHelperText>
+            ) : (
+              <FormErrorMessage>Username is required.</FormErrorMessage>
+            )}
+          </FormControl>
+          <FormControl isInvalid={isErrorPassword}>
+            <FormLabel htmlFor="password" color={'white'}>
+              Password
+            </FormLabel>
+            <InputGroup size="md">
+              <Input
+                value={password}
+                pr="4.5rem"
+                type={show ? 'text' : 'password'}
+                placeholder="Enter password"
+                w={300}
+                onChange={handleChangePassword}
+                color={'white'}
+              />
+              <InputRightElement pos="relative">
+                <Button ml={10} size="sm" pos="absolute" onClick={handleClick}>
+                  {show ? 'Hide' : 'Show'}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+            {!isErrorPassword ? (
+              <FormHelperText>Enter the Password.</FormHelperText>
+            ) : (
+              <FormErrorMessage>Password is required.</FormErrorMessage>
+            )}
+            <Button mt={4} onClick={handleSubmit} mb={4}>
+              Login
+            </Button>
+          </FormControl>
+        </Container>
+      </Center>
+    </div>
   );
 };
 

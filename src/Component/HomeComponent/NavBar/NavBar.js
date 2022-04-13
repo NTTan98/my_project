@@ -10,7 +10,7 @@ import {
 import avatar from '../../../assets/avatar.jpg';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher/ColorModeSwitcher';
 import Logout from '../../LoginComponent/logout';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './style.scss';
 import { ROUTER_NAVBAR } from '../../../bootstrap/constants';
 
@@ -26,7 +26,7 @@ const NavBar = () => {
           margin={5}
         />
         {ROUTER_NAVBAR.map((item, index) => (
-          <Breadcrumb pl={8} py="13px" key={index}>
+          <Breadcrumb pl={8} py="13px" key={index} boxShadow>
             <BreadcrumbItem
               _hover={{
                 boxShadow: '0px 0px 10px #00bfff',
@@ -35,7 +35,7 @@ const NavBar = () => {
               }}
             >
               <BreadcrumbLink
-                as={NavLink}
+                as={Link}
                 to={item.path}
                 padding="0.5rem"
                 _hover={{
@@ -43,6 +43,11 @@ const NavBar = () => {
                 }}
                 onClick={() => {
                   window.scrollTo(0, 0);
+                }}
+                _focus={{
+                  boxShadow: '0px 0px 10px #00bfff',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
                 }}
               >
                 {item.name}

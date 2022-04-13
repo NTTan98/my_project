@@ -27,7 +27,7 @@ const About = () => {
             <Heading as="h2" size="xl">
               I am Nguyen Thanh Tan
             </Heading>
-            <Text fontSize="lg" pt="1rem">
+            <Text fontSize="lg">
               Im a Front-End developer, I love to learn new things and am
               passionate about web development.
             </Text>

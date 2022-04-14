@@ -31,6 +31,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [isErrorUserName, setIsErrorUserName] = useState(false);
   const [isErrorPassword, setIsErrorPassword] = useState(false);
+  const [isLoadingCheck, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = () => setShow(!show);
@@ -39,6 +40,7 @@ const Login = () => {
     password: password,
   };
   const handleSubmit = e => {
+    setIsLoading(true);
     if (username === '') {
       setIsErrorUserName(true);
     } else {
@@ -61,12 +63,14 @@ const Login = () => {
             res.data.token,
             EXPIRED_TIME_TOKEN
           );
+          setIsLoading(false);
           navigate(ROUTER_OBJECT[1].path);
         })
         .catch(err => {
           if (err.response.status) {
             setIsErrorPassword(true);
             setIsErrorUserName(true);
+            setIsLoading(false);
           }
         });
     }
@@ -145,7 +149,12 @@ const Login = () => {
             ) : (
               <FormErrorMessage>Password is required.</FormErrorMessage>
             )}
-            <Button mt={4} onClick={handleSubmit} mb={4}>
+            <Button
+              mt={4}
+              onClick={handleSubmit}
+              mb={4}
+              isLoading={isLoadingCheck}
+            >
               Login
             </Button>
           </FormControl>

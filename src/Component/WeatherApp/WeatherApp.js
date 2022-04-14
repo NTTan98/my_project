@@ -39,9 +39,8 @@ const WeatherApp = () => {
       }}
     >
       <Container className="Container__Main" maxW={'full'}>
-        <FormControl>
+        <FormControl w={'400px'} m={'auto'}>
           <Input
-            w={'400px'}
             className="Input__WeatherApp"
             type="text"
             placeholder="City"

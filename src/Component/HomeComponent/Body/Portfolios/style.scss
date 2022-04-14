@@ -1,22 +1,23 @@
-.menu__Port {
-  .menu__Port__Todo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    &:hover {
-      transform: scale(1.1);
-    }
+.Menu__Port {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  width: 100%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  .Menu__Port__Decoration {
+    margin-top: 5px;
+    width: 200px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #0d96e0;
   }
-  .menu__Port__Weather {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    &:hover {
-      transform: scale(1.1);
-    }
+}
+
+// animation slideInFromLeft
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

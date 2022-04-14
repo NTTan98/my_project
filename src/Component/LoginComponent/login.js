@@ -17,8 +17,9 @@ import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.scss';
-import { ROUTER_OBJECT } from '../../bootstrap/constants';
+import { ROUTER_OBJECT, EXPIRED_TIME_TOKEN, COOKIES_NAME } from '../../bootstrap/constants';
 import AnimationStar from '../Animation/AnimationStar';
+import {  functionCookie } from '../../utils/helpFunction';
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -50,7 +51,8 @@ const Login = () => {
       axios
         .post(url, data)
         .then(res => {
-          localStorage.setItem('auth', res.data.token);
+          // Create token
+          functionCookie.createCookie(COOKIES_NAME.TOKEN, res.data.token,EXPIRED_TIME_TOKEN)
           navigate(ROUTER_OBJECT[1].path);
         })
         .catch(err => {
@@ -67,7 +69,7 @@ const Login = () => {
   const handleChangePassword = e => {
     setPassword(e.target.value);
   };
-  if (localStorage.getItem('auth')) {
+  if (functionCookie.getCookie(COOKIES_NAME.TOKEN)) {
     return <Navigate to={ROUTER_OBJECT[1].path} />;
   }
 

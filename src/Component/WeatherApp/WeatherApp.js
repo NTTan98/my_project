@@ -3,7 +3,7 @@ import './style.scss';
 import { Container, Input, FormControl, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import { getAPIWeather } from '../../api/getAPIWeather';
-import dateBuilder from '../../untils/helpful';
+import dateBuilder from '../../utils/helpFunction';
 const WeatherApp = () => {
   const [city, setCity] = useState('');
   const [query, setQuery] = useState('ho chi minh');

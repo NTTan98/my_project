@@ -164,3 +164,9 @@ export const MONTHS_DAYS = [
     ],
   },
 ];
+
+export const EXPIRED_TIME_TOKEN = 1000 * 60 * 60 * 24;
+
+export const COOKIES_NAME={
+  TOKEN: 'token'
+}

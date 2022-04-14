@@ -9,7 +9,7 @@ import { ROUTER_PORTFOLIO } from '../../../../bootstrap/constants';
 
 const MenuPort = () => {
   return (
-    <div className="Menu__Port">
+    <div className="Menu__Port Animation">
       <Heading as="h1" size="2xl">
         Portfolio
       </Heading>

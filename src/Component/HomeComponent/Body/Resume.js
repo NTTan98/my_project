@@ -32,7 +32,7 @@ const Skills = [
 
 const Resume = () => {
   return (
-    <div className="Resume">
+    <div className="Resume Animation">
       <div className="Resume__Skill">
         <Heading as="h1" size="2xl">
           Skills

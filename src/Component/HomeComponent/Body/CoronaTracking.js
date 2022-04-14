@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { url } from '../../../api/CoronaAPI.js';
-import { Heading, Input } from '@chakra-ui/react';
+import { Flex, Container, Heading, Input } from '@chakra-ui/react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -61,23 +61,19 @@ const CoronaTracking = () => {
     }
   }
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: '2rem',
-      }}
+    <Flex
+      direction={'column'}
+      justify={'center'}
+      align={'center'}
+      mt={'2rem'}
+      className="Animation"
     >
       <Heading
         as="h3"
         size="lg"
-        style={{
-          marginBottom: '1rem',
-          color: '#e11f11',
-          fontWeight: 'bold',
-        }}
+        mb={'1rem'}
+        color={'#e11f11'}
+        fontWeight={'bold'}
       >
         Where do you want tracking Covid 19
       </Heading>
@@ -99,34 +95,18 @@ const CoronaTracking = () => {
             setSearch('');
           }
         }}
-        style={{
-          width: '50%',
-          marginBottom: '1rem',
-          boxShadow: '0px 0px 5px #eaeaea',
-        }}
+        w={'50%'}
+        mb={'1rem'}
+        boxShadow={'0px 0px 10px #e11f11'}
       />
-      <Heading
-        as="h5"
-        size="md"
-        style={{
-          color: '#e11f11',
-          fontWeight: 'bold',
-        }}
-      >
+      <Heading as="h5" size="md" color={'#e11f11'} fontWeight={'bold'}>
         COVID 19 Chart{' in the '}
         {corona !== null ? data.name : ''}
       </Heading>
-      <div
-        style={{
-          marginTop: '1rem',
-          width: '100%',
-          height: '400px',
-          marginBottom: '1rem',
-        }}
-      >
+      <Container mt={'1rem'} mb={'1rem'} w={'100%'} h={'400px'}>
         {corona !== null ? <Doughnut data={data} options={options} /> : ''}
-      </div>
-    </div>
+      </Container>
+    </Flex>
   );
 };
 

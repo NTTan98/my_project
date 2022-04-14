@@ -1,5 +1,4 @@
 .Menu__Port {
-  animation: 1s ease-out 0s 1 slideInFromLeft;
   width: 100%;
   margin-top: 1rem;
   margin-left: 1rem;
@@ -13,11 +12,3 @@
 }
 
 // animation slideInFromLeft
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-10%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}

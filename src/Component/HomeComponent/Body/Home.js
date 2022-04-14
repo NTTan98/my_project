@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaDribbble } from 'react-icons/fa';
 import './style/Home.scss';
 const Home = () => {
   return (
-    <div className="Home">
+    <div className="Home Animation">
       <div className="Home__Avt">
         <img src={Avatar} alt="avatar" />
       </div>

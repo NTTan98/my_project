@@ -2,7 +2,6 @@
   width: 100%;
   margin-top: 1rem;
   margin-left: 1rem;
-  animation: 1s ease-out 0s 1 slideInFromLeft;
   .About__Me {
     .About__Me__Decoration {
       margin-top: 5px;
@@ -30,13 +29,5 @@
         max-width: 600px;
       }
     }
-  }
-}
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-10%);
-  }
-  100% {
-    transform: translateX(0);
   }
 }

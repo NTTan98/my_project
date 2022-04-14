@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 const About = () => {
   return (
-    <div className="About">
+    <div className="About Animation">
       <div className="About__Me">
         <Heading as="h1" size="2xl">
           ABOUT ME

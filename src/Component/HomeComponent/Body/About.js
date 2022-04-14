@@ -11,9 +11,11 @@ import {
   TableContainer,
   Button,
 } from '@chakra-ui/react';
+import AnimationStar from '../../Animation/AnimationStar';
 const About = () => {
   return (
     <div className="About Animation">
+      <AnimationStar />
       <div className="About__Me">
         <Heading as="h1" size="2xl">
           ABOUT ME

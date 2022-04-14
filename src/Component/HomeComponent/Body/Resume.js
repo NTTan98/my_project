@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Heading, Text, Box } from '@chakra-ui/react';
 import './style/Resume.scss';
+import AnimationStar from '../../Animation/AnimationStar';
 const Skills = [
   {
     name: 'HTML',
@@ -33,6 +34,7 @@ const Skills = [
 const Resume = () => {
   return (
     <div className="Resume Animation">
+      <AnimationStar />
       <div className="Resume__Skill">
         <Heading as="h1" size="2xl">
           Skills

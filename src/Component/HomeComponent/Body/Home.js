@@ -2,9 +2,11 @@ import React from 'react';
 import Avatar from '../../../assets/avatar.jpg';
 import { FaFacebook, FaTwitter, FaInstagram, FaDribbble } from 'react-icons/fa';
 import './style/Home.scss';
+import AnimationStar from '../../Animation/AnimationStar';
 const Home = () => {
   return (
     <div className="Home Animation">
+      <AnimationStar />
       <div className="Home__Avt">
         <img src={Avatar} alt="avatar" />
       </div>

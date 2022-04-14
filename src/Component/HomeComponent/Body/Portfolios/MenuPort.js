@@ -6,10 +6,12 @@ import WeatherImage from '../../../../assets/weather.jpg';
 
 import './style.scss';
 import { ROUTER_PORTFOLIO } from '../../../../bootstrap/constants';
+import AnimationStar from '../../../Animation/AnimationStar';
 
 const MenuPort = () => {
   return (
     <div className="Menu__Port Animation">
+      <AnimationStar />
       <Heading as="h1" size="2xl">
         Portfolio
       </Heading>
@@ -25,6 +27,10 @@ const MenuPort = () => {
               src={item.name === 'Todo' ? TodoImage : WeatherImage}
               alt={item.name}
               className="menu__Port__Image"
+              _hover={{
+                transform: 'scale(1.1)',
+                opacity: '0.8',
+              }}
             />
           </Link>
         ))}

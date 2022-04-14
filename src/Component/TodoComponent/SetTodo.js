@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { InputGroup, Input } from '@chakra-ui/react';
+import { InputGroup, Input, InputRightElement, Button } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { updateTodo } from '../../redux/action';
 
@@ -23,17 +23,32 @@ function SetTodo() {
       }
     }
   };
+  const handleClick = e => {
+    if (typeValue) {
+      const ListTodo = {
+        id: uuidv4(),
+        isComplete: false,
+        todo: typeValue,
+      };
+      const action = updateTodo(ListTodo);
+      dispatch(action);
+      setTypeValue('');
+    }
+  };
   return (
     <div>
-      <InputGroup size="md" onKeyUp={handleEnter}>
+      <InputGroup size="md" onKeyUp={handleEnter} maxW="400" margin="auto">
         <Input
-          maxW="400"
-          margin="auto"
           placeholder="Todo"
           type={'text'}
           value={typeValue}
           onChange={handleChange}
-        ></Input>
+        />
+        <InputRightElement right={'10px'}>
+          <Button onClick={handleClick} size="sm" colorScheme={'red'}>
+            Add
+          </Button>
+        </InputRightElement>
       </InputGroup>
     </div>
   );

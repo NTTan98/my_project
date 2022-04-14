@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { url } from '../../../api/CoronaAPI.js';
-import { Flex, Container, Heading, Input } from '@chakra-ui/react';
+import { Flex, Heading, Input } from '@chakra-ui/react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -95,7 +95,7 @@ const CoronaTracking = () => {
             setSearch('');
           }
         }}
-        w={'50%'}
+        width={'50%'}
         mb={'1rem'}
         boxShadow={'0px 0px 10px #e11f11'}
       />
@@ -103,9 +103,16 @@ const CoronaTracking = () => {
         COVID 19 Chart{' in the '}
         {corona !== null ? data.name : ''}
       </Heading>
-      <Container mt={'1rem'} mb={'1rem'} w={'100%'} h={'400px'}>
+      <div
+        style={{
+          marginTop: '1rem',
+          width: '100%',
+          height: '400px',
+          marginBottom: '1rem',
+        }}
+      >
         {corona !== null ? <Doughnut data={data} options={options} /> : ''}
-      </Container>
+      </div>
     </Flex>
   );
 };

@@ -45,9 +45,7 @@ const NavBar = () => {
                   window.scrollTo(0, 0);
                 }}
                 _focus={{
-                  boxShadow: '0px 0px 10px #00bfff',
-                  borderRadius: '10px',
-                  cursor: 'pointer',
+                  boxShadow: 'none',
                 }}
               >
                 {item.name}

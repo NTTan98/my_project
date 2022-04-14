@@ -3,7 +3,7 @@ import './style.scss';
 import { Container, Input, FormControl, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import { getAPIWeather } from '../../api/getAPIWeather';
-import dateBuilder from '../../untils/helpful';
+import dateBuilder from '../../utils/helpFunction';
 const WeatherApp = () => {
   const [city, setCity] = useState('');
   const [query, setQuery] = useState('ho chi minh');
@@ -26,7 +26,7 @@ const WeatherApp = () => {
   }, [query]);
   return (
     <Container
-      maxW="350px"
+      maxW={'full'}
       className={
         typeof weather.main != 'undefined'
           ? Math.round(weather.main.temp - 273.15) > 16
@@ -34,11 +34,14 @@ const WeatherApp = () => {
             : 'Container__WeatherApp Cold'
           : 'Container__WeatherApp'
       }
-      style={{ padding: '0' }}
+      style={{
+        padding: '0px',
+      }}
     >
-      <Container className="Container__Main">
+      <Container className="Container__Main" maxW={'full'}>
         <FormControl>
           <Input
+            w={'400px'}
             className="Input__WeatherApp"
             type="text"
             placeholder="City"

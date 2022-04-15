@@ -10,11 +10,12 @@ import {
 import avatar from '../../../assets/avatar.jpg';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher/ColorModeSwitcher';
 import Logout from '../../LoginComponent/logout';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import './style.scss';
-import { ROUTER_NAVBAR } from '../../../bootstrap/constants';
+import { ROUTER_NAVBAR, ACTIVE_STYLE } from '../../../bootstrap/constants';
 
 const NavBar = () => {
+  console.log(ACTIVE_STYLE.ACTIVE);
   return (
     <Flex w="100vw">
       <Box className="navbar">
@@ -35,7 +36,7 @@ const NavBar = () => {
               }}
             >
               <BreadcrumbLink
-                as={Link}
+                as={NavLink}
                 to={item.path}
                 padding="0.5rem"
                 _hover={{
@@ -46,6 +47,12 @@ const NavBar = () => {
                 }}
                 _focus={{
                   boxShadow: 'none',
+                }}
+                style={({ isActive }) => {
+                  if (isActive) {
+                    return ACTIVE_STYLE.ACTIVE;
+                  }
+                  return ACTIVE_STYLE.INACTIVE;
                 }}
               >
                 {item.name}

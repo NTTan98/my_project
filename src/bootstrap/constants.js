@@ -170,3 +170,16 @@ export const EXPIRED_TIME_TOKEN = 1000 * 60 * 60 * 24;
 export const COOKIES_NAME = {
   TOKEN: 'token',
 };
+
+export const ACTIVE_STYLE = {
+  ACTIVE: {
+    boxShadow: '0px 0px 10px #00bfff',
+    borderRadius: '10px',
+    cursor: 'pointer',
+  },
+  INACTIVE: {
+    boxShadow: 'none',
+    borderRadius: '10px',
+    cursor: 'pointer',
+  },
+};

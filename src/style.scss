@@ -4,7 +4,7 @@ body {
   overflow-x: hidden;
 }
 .Animation {
-  animation: 1s ease-out 0s 1 slideInFromLeft;
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
 }
 @keyframes slideInFromLeft {
   0% {

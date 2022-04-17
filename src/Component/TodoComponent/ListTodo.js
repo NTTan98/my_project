@@ -65,7 +65,7 @@ function ListTodo(props) {
                 {todo.todo}
               </Text>
             </Checkbox>
-            <Spacer />
+            <Spacer />    
             <Button
               colorScheme="red"
               onClick={() => {

@@ -65,7 +65,6 @@ const CoronaTracking = () => {
       direction={'column'}
       justify={'center'}
       align={'center'}
-      mt={'2rem'}
       className="Animation"
     >
       <Heading

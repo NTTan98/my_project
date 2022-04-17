@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, Container, extendTheme } from '@chakra-ui/react';
 import Home from './view/Home/index';
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -11,7 +11,9 @@ export const App = () => (
   <Provider store={store}>
     <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <Home />
+        <Container maxW="100vw" m="0" p="0">
+          <Home />
+        </Container>
       </BrowserRouter>
     </ChakraProvider>
   </Provider>

@@ -2,7 +2,7 @@ import Header from '../Component/HomeComponent/NavBar/NavBar';
 import Login from '../Component/LoginComponent/login';
 import ItemHome from '../Component/HomeComponent/Body/Home';
 import ItemAbout from '../Component/HomeComponent/Body/About';
-import ItemResume from '../Component/HomeComponent/Body/Resume';
+import ItemKnowledge from '../Component/HomeComponent/Body/Knowledge';
 import ItemPortfolios from '../Component/HomeComponent/Body/Portfolios/Portfolios';
 import ItemPortfolio from '../Component/HomeComponent/Body/Portfolios/Portfolio';
 import ItemMenuPortfolio from '../Component/HomeComponent/Body/Portfolios/MenuPort';
@@ -13,7 +13,18 @@ import WeatherApp from '../Component/WeatherApp/WeatherApp';
 import PrivateRoute from '../service/PrivateRoute';
 import TodoImage from '../assets/todo.jpg';
 import WeatherImage from '../assets/weather.jpg';
-
+import HtmlIcon from '../assets/logohtml.svg';
+import CssIcon from '../assets/logocss.svg';
+import SassIcon from '../assets/logosass.svg';
+import JsIcon from '../assets/logojs.svg';
+import ReactIcon from '../assets/logoreact.svg';
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaDribbble,
+  FaGithub,
+} from 'react-icons/fa';
 export const ROUTER_OBJECT = [
   {
     name: 'login',
@@ -38,11 +49,6 @@ export const ROUTER_OBJECT = [
         name: 'ABOUT',
         path: '/about',
         element: <ItemAbout />,
-      },
-      {
-        name: 'RESUME',
-        path: '/resume',
-        element: <ItemResume />,
       },
       {
         name: 'PORTFOLIO',
@@ -74,6 +80,12 @@ export const ROUTER_OBJECT = [
         ],
       },
       {
+        name: 'KNOWLEDGE',
+        path: '/knowledge',
+        element: <ItemKnowledge />,
+      },
+
+      {
         name: 'COVID 19',
         path: '/corona',
         element: <ItemCorona />,
@@ -97,12 +109,12 @@ export const ROUTER_NAVBAR = [
     path: '/about',
   },
   {
-    name: 'RESUME',
-    path: '/resume',
-  },
-  {
     name: 'PORTFOLIO',
     path: '/portfolios',
+  },
+  {
+    name: 'KNOWLEDGE',
+    path: '/knowledge',
   },
 
   {
@@ -183,3 +195,55 @@ export const ACTIVE_STYLE = {
     cursor: 'pointer',
   },
 };
+
+export const SKILLS_LOGO = [
+  {
+    name: 'HTML',
+    src: HtmlIcon,
+  },
+  {
+    name: 'CSS',
+    src: CssIcon,
+  },
+  {
+    name: 'SASS',
+    src: SassIcon,
+  },
+  {
+    name: 'JavaScript',
+    src: JsIcon,
+  },
+  {
+    name: 'React',
+    src: ReactIcon,
+  },
+];
+
+export const SOCIAL_LOGO = [
+  {
+    href: 'https://www.facebook.com',
+    as: FaFacebook,
+    color: '#3b5998',
+  },
+  {
+    href: 'https://www.github.com',
+    as: FaGithub,
+    color: '#FCD900',
+  },
+
+  {
+    href: 'https://www.twitter.com',
+    as: FaTwitter,
+    color: '#1da1f2',
+  },
+  {
+    href: 'https://www.instagram.com',
+    as: FaInstagram,
+    color: '#e1306c',
+  },
+  {
+    href: 'https://www.dribbble.com',
+    as: FaDribbble,
+    color: '#ea4c89',
+  },
+];

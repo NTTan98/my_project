@@ -1,10 +1,11 @@
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
 .Animation {
   animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+.Home__Avt {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 250px 750px 250px 750px / 750px 250px 750px 250px;
+  animation: wobble 15s ease-in-out alternate infinite;
 }
 @keyframes slideInFromLeft {
   0% {
@@ -12,5 +13,13 @@ body {
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes wobble {
+  50% {
+    border-radius: 750px 550px 350px 750px / 350px 750px 550px 450px;
+  }
+  100% {
+    border-radius: 750px 250px 750px 250px / 250px 750px 250px 750px;
   }
 }

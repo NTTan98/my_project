@@ -7,6 +7,10 @@
   border-radius: 250px 750px 250px 750px / 750px 250px 750px 250px;
   animation: wobble 15s ease-in-out alternate infinite;
 }
+.Todo__App {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-10%);
@@ -21,5 +25,14 @@
   }
   100% {
     border-radius: 750px 250px 750px 250px / 250px 750px 250px 750px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

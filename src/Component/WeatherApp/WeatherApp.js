@@ -37,6 +37,7 @@ const WeatherApp = () => {
       style={{
         padding: '0px',
       }}
+      zIndex={'-1'}
     >
       <Container className="Container__Main" maxW={'full'}>
         <FormControl w={'400px'} m={'auto'}>

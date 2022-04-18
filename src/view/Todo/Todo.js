@@ -4,14 +4,15 @@ import SetTodo from '../../Component/TodoComponent/SetTodo';
 import ListTodo from '../../Component/TodoComponent/ListTodo';
 import Masthead from '../../Component/TodoComponent/masthead';
 import './style.scss';
+import { Container } from '@chakra-ui/react';
 function Todo() {
   const todoList = useSelector(state => state.Todo.list);
   return (
-    <div className="Todo__App">
+    <Container className="Todo__App">
       <Masthead title="What's Up, Tan" />
       <SetTodo />
       <ListTodo todoList={todoList} />
-    </div>
+    </Container>
   );
 }
 

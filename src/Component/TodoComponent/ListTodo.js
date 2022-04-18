@@ -7,9 +7,6 @@ import {
   Spacer,
   Text,
   Button,
-  Editable,
-  EditableTextarea,
-  EditablePreview,
   useDisclosure,
 } from '@chakra-ui/react';
 import { CompleteTodoReducer, DeleteTodoReducer } from '../../redux/action';
@@ -36,17 +33,21 @@ function ListTodo(props) {
   };
 
   return (
-    <div>
+    <Container>
       {todoList.map(todo => (
         <Container
-          maxW="400"
-          key={todo.id}
-          style={{
-            marginTop: '10px',
-            borderRadius: '5px',
-            padding: '10px',
-            boxShadow: '0px 0px 10px #00bfff',
+          // maxW="400"
+          maxW={{
+            lg: '400px',
+            md: '300px',
+            sm: '200px',
+            xs: '100%',
           }}
+          key={todo.id}
+          mb="1rem"
+          borderRadius="5px"
+          padding="10px"
+          boxShadow="0px 0px 10px #00bfff"
         >
           <Flex justify={'justifyContent'} align={'center'}>
             <Checkbox
@@ -65,8 +66,9 @@ function ListTodo(props) {
                 {todo.todo}
               </Text>
             </Checkbox>
-            <Spacer />    
+            <Spacer />
             <Button
+              size={'sm'}
               colorScheme="red"
               onClick={() => {
                 onOpen();
@@ -84,7 +86,7 @@ function ListTodo(props) {
         cancelRef={cancelRef}
         handleClickDelete={handleClickDelete}
       />
-    </div>
+    </Container>
   );
 }
 

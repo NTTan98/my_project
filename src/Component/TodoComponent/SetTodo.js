@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { InputGroup, Input, InputRightElement, Button } from '@chakra-ui/react';
+import {
+  InputGroup,
+  Input,
+  InputRightElement,
+  Button,
+  Container,
+} from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { updateTodo } from '../../redux/action';
 
@@ -36,8 +42,18 @@ function SetTodo() {
     }
   };
   return (
-    <div>
-      <InputGroup size="md" onKeyUp={handleEnter} maxW="400" margin="auto">
+    <Container>
+      <InputGroup
+        size="md"
+        onKeyUp={handleEnter}
+        maxW={{
+          lg: '400px',
+          md: '300px',
+          sm: '200px',
+          xs: '100%',
+        }}
+        pb="1rem"
+      >
         <Input
           placeholder="Todo"
           type={'text'}
@@ -50,7 +66,7 @@ function SetTodo() {
           </Button>
         </InputRightElement>
       </InputGroup>
-    </div>
+    </Container>
   );
 }
 

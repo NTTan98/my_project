@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heading, Image, Flex, Container, Progress } from '@chakra-ui/react';
+import { Heading, Image, Flex, Container } from '@chakra-ui/react';
 import TodoImage from '../../../../assets/todo.jpg';
 import WeatherImage from '../../../../assets/weather.jpg';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Container,
+  Flex,
   Box,
   Breadcrumb,
   BreadcrumbItem,
@@ -112,7 +113,7 @@ const NavBar = () => {
               boxShadow: 'none',
             }}
           />
-          <MenuList>
+          <MenuList p={2}>
             {ROUTER_NAVBAR.map((item, index) => (
               <MenuItem
                 as={NavLink}
@@ -120,6 +121,9 @@ const NavBar = () => {
                 key={index}
                 onClick={() => {
                   window.scrollTo(0, 0);
+                }}
+                _focus={{
+                  boxShadow: 'none',
                 }}
                 style={({ isActive }) => {
                   if (isActive) {
@@ -131,54 +135,10 @@ const NavBar = () => {
                 {item.name}
               </MenuItem>
             ))}
+            <ColorModeSwitcher />
+            <Logout />
           </MenuList>
-          {/* <MenuList>
-            {ROUTER_NAVBAR.map((item, index) => (
-              <MenuItem
-                key={index}
-                _focus={{
-                  boxShadow: 'none',
-                  background: 'none',
-                }}
-              >
-                <Breadcrumb>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink
-                      as={NavLink}
-                      to={item.path}
-                      padding="0.5rem"
-                      _hover={{
-                        textDecoration: 'none',
-                      }}
-                      onClick={() => {
-                        window.scrollTo(0, 0);
-                      }}
-                      style={({ isActive }) => {
-                        if (isActive) {
-                          return ACTIVE_STYLE.ACTIVE;
-                        }
-                        return ACTIVE_STYLE.INACTIVE;
-                      }}
-                    >
-                      {item.name}
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                </Breadcrumb>
-              </MenuItem>
-            ))}
-            <MenuItem
-              _focus={{
-                boxShadow: 'none',
-                background: 'none',
-              }}
-            >
-              <ColorModeSwitcher />
-            </MenuItem>
-          </MenuList> */}
         </Menu>
-        <Box>
-          <Logout />
-        </Box>
       </Box>
       <Box
         pl={{

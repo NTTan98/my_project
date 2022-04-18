@@ -42,7 +42,7 @@ const NavBar = () => {
           margin={5}
         />
         {ROUTER_NAVBAR.map((item, index) => (
-          <Breadcrumb pl={6} py="13px" key={index} boxShadow>
+          <Breadcrumb pl={6} py="13px" key={index}>
             <BreadcrumbItem
               _hover={{
                 boxShadow: '0px 0px 10px #00bfff',
@@ -96,8 +96,14 @@ const NavBar = () => {
         pl={3}
         pr={3}
         pos="fixed"
+        zIndex={1}
       >
-        <Menu>
+        <Menu
+          _focus={{
+            boxShadow: 'none',
+            background: 'none',
+          }}
+        >
           <MenuButton
             as={IconButton}
             icon={<HamburgerIcon />}
@@ -109,31 +115,55 @@ const NavBar = () => {
           <MenuList>
             {ROUTER_NAVBAR.map((item, index) => (
               <MenuItem
+                as={NavLink}
+                to={item.path}
+                key={index}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+                style={({ isActive }) => {
+                  if (isActive) {
+                    return ACTIVE_STYLE.ACTIVE;
+                  }
+                  return ACTIVE_STYLE.INACTIVE;
+                }}
+              >
+                {item.name}
+              </MenuItem>
+            ))}
+          </MenuList>
+          {/* <MenuList>
+            {ROUTER_NAVBAR.map((item, index) => (
+              <MenuItem
                 key={index}
                 _focus={{
                   boxShadow: 'none',
                   background: 'none',
                 }}
               >
-                <BreadcrumbLink
-                  as={NavLink}
-                  to={item.path}
-                  padding="0.5rem"
-                  _hover={{
-                    textDecoration: 'none',
-                  }}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                  style={({ isActive }) => {
-                    if (isActive) {
-                      return ACTIVE_STYLE.ACTIVE;
-                    }
-                    return ACTIVE_STYLE.INACTIVE;
-                  }}
-                >
-                  {item.name}
-                </BreadcrumbLink>
+                <Breadcrumb>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink
+                      as={NavLink}
+                      to={item.path}
+                      padding="0.5rem"
+                      _hover={{
+                        textDecoration: 'none',
+                      }}
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                      }}
+                      style={({ isActive }) => {
+                        if (isActive) {
+                          return ACTIVE_STYLE.ACTIVE;
+                        }
+                        return ACTIVE_STYLE.INACTIVE;
+                      }}
+                    >
+                      {item.name}
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                </Breadcrumb>
               </MenuItem>
             ))}
             <MenuItem
@@ -144,7 +174,7 @@ const NavBar = () => {
             >
               <ColorModeSwitcher />
             </MenuItem>
-          </MenuList>
+          </MenuList> */}
         </Menu>
         <Box>
           <Logout />

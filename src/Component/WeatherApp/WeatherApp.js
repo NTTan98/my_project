@@ -8,7 +8,7 @@ import {
   AlertIcon,
 } from '@chakra-ui/react';
 import axios from 'axios';
-import { getAPIWeather } from '../../api/getAPIWeather';
+import { BASE_URL } from '../../bootstrap/constants';
 import WeatherWallpaper from '../../assets/weather.jpg';
 import dateBuilder from '../../utils/helpFunction';
 const WeatherApp = () => {
@@ -28,7 +28,7 @@ const WeatherApp = () => {
   useEffect(() => {
     const getWeather = async () => {
       await axios
-        .get(getAPIWeather.getWeather(query))
+        .get(BASE_URL.URL_WEATHER.getWeather(query))
         .then(res => {
           setWeather(res.data);
           setError(false);

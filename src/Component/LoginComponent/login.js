@@ -9,21 +9,19 @@ import {
   InputRightElement,
   InputGroup,
   Button,
-  Center,
-  Container,
+  Flex,
 } from '@chakra-ui/react';
-import { url } from '../../api/LoginUrl';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
-import './login.scss';
 import {
-  ROUTER_OBJECT,
+  ROUTER_ARRAY,
   EXPIRED_TIME_TOKEN,
   COOKIES_NAME,
+  BASE_URL,
 } from '../../bootstrap/constants';
 import { functionCookie } from '../../utils/helpFunction';
-import AnimationStar from '../Animation/AnimationStar';
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -55,7 +53,7 @@ const Login = () => {
     if (username !== '' && password !== '') {
       e.preventDefault();
       axios
-        .post(url, data)
+        .post(BASE_URL.URL_LOGIN, data)
         .then(res => {
           // Create token
           functionCookie.createCookie(
@@ -64,7 +62,7 @@ const Login = () => {
             EXPIRED_TIME_TOKEN
           );
           setIsLoading(false);
-          navigate(ROUTER_OBJECT[1].path);
+          navigate(ROUTER_ARRAY[1].path);
         })
         .catch(err => {
           if (err.response.status) {
@@ -82,85 +80,76 @@ const Login = () => {
     setPassword(e.target.value);
   };
   if (functionCookie.getCookie(COOKIES_NAME.TOKEN)) {
-    return <Navigate to={ROUTER_OBJECT[1].path} />;
+    return <Navigate to={ROUTER_ARRAY[1].path} />;
   }
 
   return (
-    <div>
-      <Center h="100vh" m={0} className="Login__Bg">
-        <AnimationStar />
-        <Container
-          maxW="sm"
-          boxShadow={
-            '0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.1)'
-          }
-          borderRadius="10%"
-        >
-          <Heading
-            as="h1"
-            size="lg"
+    <Flex
+      m={0}
+      p={0}
+      w="100%"
+      h="100vh"
+      direction="column"
+      align="center"
+      justify="center"
+      border={'1px solid #e6e6e6'}
+    >
+      <Heading as="h1" size="lg" mb={4} textAlign="center" paddingTop={4}>
+        Login
+      </Heading>
+      <Flex m={0} p={0} direction="column" align="center" justify="center">
+        <FormControl isInvalid={isErrorUserName}>
+          <FormLabel htmlFor="user" color={'white'}>
+            Username
+          </FormLabel>
+          <Input
+            value={username}
+            id="user"
+            placeholder="Enter your username"
+            w={300}
+            onChange={handleChangeUser}
+          />
+          {!isErrorUserName ? (
+            <FormHelperText>Enter the Username.</FormHelperText>
+          ) : (
+            <FormErrorMessage>Username is required.</FormErrorMessage>
+          )}
+        </FormControl>
+        <FormControl isInvalid={isErrorPassword}>
+          <FormLabel htmlFor="password">Password</FormLabel>
+          <InputGroup size="md">
+            <Input
+              value={password}
+              pr="4.5rem"
+              type={show ? 'text' : 'password'}
+              placeholder="Enter password"
+              w={300}
+              onChange={handleChangePassword}
+            />
+            <InputRightElement
+              children={
+                <Button onClick={handleClick} bg="none">
+                  {show ? <ViewOffIcon /> : <ViewIcon />}
+                </Button>
+              }
+            ></InputRightElement>
+          </InputGroup>
+          {!isErrorPassword ? (
+            <FormHelperText>Enter the Password.</FormHelperText>
+          ) : (
+            <FormErrorMessage>Password is required.</FormErrorMessage>
+          )}
+          <Button
+            mt={4}
+            onClick={handleSubmit}
             mb={4}
-            textAlign="center"
-            paddingTop={4}
-            color={'white'}
+            isLoading={isLoadingCheck}
           >
             Login
-          </Heading>
-          <FormControl isInvalid={isErrorUserName}>
-            <FormLabel htmlFor="user" color={'white'}>
-              Username
-            </FormLabel>
-            <Input
-              value={username}
-              id="user"
-              placeholder="Enter your username"
-              w={300}
-              color={'white'}
-              onChange={handleChangeUser}
-            />
-            {!isErrorUserName ? (
-              <FormHelperText>Enter the Username.</FormHelperText>
-            ) : (
-              <FormErrorMessage>Username is required.</FormErrorMessage>
-            )}
-          </FormControl>
-          <FormControl isInvalid={isErrorPassword}>
-            <FormLabel htmlFor="password" color={'white'}>
-              Password
-            </FormLabel>
-            <InputGroup size="md">
-              <Input
-                value={password}
-                pr="4.5rem"
-                type={show ? 'text' : 'password'}
-                placeholder="Enter password"
-                w={300}
-                onChange={handleChangePassword}
-                color={'white'}
-              />
-              <InputRightElement pos="relative">
-                <Button ml={10} size="sm" pos="absolute" onClick={handleClick}>
-                  {show ? 'Hide' : 'Show'}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            {!isErrorPassword ? (
-              <FormHelperText>Enter the Password.</FormHelperText>
-            ) : (
-              <FormErrorMessage>Password is required.</FormErrorMessage>
-            )}
-            <Button
-              mt={4}
-              onClick={handleSubmit}
-              mb={4}
-              isLoading={isLoadingCheck}
-            >
-              Login
-            </Button>
-          </FormControl>
-        </Container>
-      </Center>
-    </div>
+          </Button>
+        </FormControl>
+      </Flex>
+    </Flex>
   );
 };
 

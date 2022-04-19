@@ -60,8 +60,8 @@ const MenuPort = () => {
               }}
               boxSize={{
                 lg: '400px',
-                md: '400px',
-                sm: '400px',
+                md: '350px',
+                sm: '250px',
                 '2sm': '150px',
               }}
               objectFit="cover"

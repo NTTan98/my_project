@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Container,
-  Flex,
   Box,
   Breadcrumb,
   BreadcrumbItem,
@@ -12,6 +11,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Text,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import avatar from '../../../assets/avatar.jpg';
@@ -139,6 +139,14 @@ const NavBar = () => {
             <Logout />
           </MenuList>
         </Menu>
+        <Avatar
+          borderRadius="full"
+          boxSize="50px"
+          src={avatar}
+          alt="avatar"
+          as={NavLink}
+          to={ROUTER_NAVBAR[0].path}
+        />
       </Box>
       <Box
         pl={{

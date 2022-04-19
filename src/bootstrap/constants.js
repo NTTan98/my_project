@@ -2,7 +2,6 @@ import Header from '../Component/HomeComponent/NavBar/NavBar';
 import Login from '../Component/LoginComponent/login';
 import ItemHome from '../Component/HomeComponent/Body/Home';
 import ItemAbout from '../Component/HomeComponent/Body/About';
-import ItemKnowledge from '../Component/HomeComponent/Body/Knowledge';
 import ItemPortfolios from '../Component/HomeComponent/Body/Portfolios/Portfolios';
 import ItemPortfolio from '../Component/HomeComponent/Body/Portfolios/Portfolio';
 import ItemMenuPortfolio from '../Component/HomeComponent/Body/Portfolios/MenuPort';
@@ -13,11 +12,7 @@ import WeatherApp from '../Component/WeatherApp/WeatherApp';
 import PrivateRoute from '../service/PrivateRoute';
 import TodoImage from '../assets/todo.jpg';
 import WeatherImage from '../assets/weather.jpg';
-import HtmlIcon from '../assets/logohtml.svg';
-import CssIcon from '../assets/logocss.svg';
-import SassIcon from '../assets/logosass.svg';
-import JsIcon from '../assets/logojs.svg';
-import ReactIcon from '../assets/logoreact.svg';
+
 import {
   FaFacebook,
   FaTwitter,
@@ -25,7 +20,7 @@ import {
   FaDribbble,
   FaGithub,
 } from 'react-icons/fa';
-export const ROUTER_OBJECT = [
+export const ROUTER_ARRAY = [
   {
     name: 'login',
     path: '/login',
@@ -79,11 +74,6 @@ export const ROUTER_OBJECT = [
           },
         ],
       },
-      {
-        name: 'KNOWLEDGE',
-        path: '/knowledge',
-        element: <ItemKnowledge />,
-      },
 
       {
         name: 'COVID 19',
@@ -111,10 +101,6 @@ export const ROUTER_NAVBAR = [
   {
     name: 'PORTFOLIO',
     path: '/portfolios',
-  },
-  {
-    name: 'KNOWLEDGE',
-    path: '/knowledge',
   },
 
   {
@@ -196,29 +182,6 @@ export const ACTIVE_STYLE = {
   },
 };
 
-export const SKILLS_LOGO = [
-  {
-    name: 'HTML',
-    src: HtmlIcon,
-  },
-  {
-    name: 'CSS',
-    src: CssIcon,
-  },
-  {
-    name: 'SASS',
-    src: SassIcon,
-  },
-  {
-    name: 'JavaScript',
-    src: JsIcon,
-  },
-  {
-    name: 'React',
-    src: ReactIcon,
-  },
-];
-
 export const SOCIAL_LOGO = [
   {
     href: 'https://www.facebook.com',
@@ -247,3 +210,14 @@ export const SOCIAL_LOGO = [
     color: '#ea4c89',
   },
 ];
+export const BASE_URL = {
+  URL_LOGIN: 'https://todo-nodemy.herokuapp.com/user/login',
+  URL_CORONA: 'https://coronavirus-19-api.herokuapp.com/countries',
+  URL_WEATHER: {
+    KEY: '57827271cac88faca3c697ee3ae49428',
+    BASE: 'https://api.openweathermap.org/data/2.5/',
+    getWeather: function (city) {
+      return this.BASE + 'weather?q=' + city + '&appid=' + this.KEY;
+    },
+  },
+};

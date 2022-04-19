@@ -49,7 +49,7 @@ const Home = () => {
           fontSize={{
             lg: '3rem',
             md: '3rem',
-            sm: '2.5rem',
+            sm: '2rem',
             '2sm': '2rem',
           }}
           fontWeight="bold"
@@ -63,7 +63,7 @@ const Home = () => {
           fontSize={{
             lg: '1.5rem',
             md: '1.5rem',
-            sm: '1.5rem',
+            sm: '1rem',
             '2sm': '1rem',
           }}
           fontStyle="italic"
@@ -75,7 +75,7 @@ const Home = () => {
           fontSize={{
             lg: '1.5rem',
             md: '1.5rem',
-            sm: '1.5rem',
+            sm: '1rem',
             '2sm': '1rem',
           }}
           fontStyle="italic"

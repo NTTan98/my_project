@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { url } from '../../../api/CoronaAPI.js';
-import { Flex, Heading, Input } from '@chakra-ui/react';
+import { BASE_URL } from '../../../bootstrap/constants';
+import { Flex, Heading, Input, Box } from '@chakra-ui/react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -11,7 +11,7 @@ const CoronaTracking = () => {
   const [searchResult, setSearchResult] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(url);
+      const result = await axios(BASE_URL.URL_CORONA);
       setCorona(result.data);
     };
     fetchData();
@@ -63,16 +63,30 @@ const CoronaTracking = () => {
   return (
     <Flex
       direction={'column'}
-      justify={'center'}
       align={'center'}
       className="Animation"
+      pt={{
+        lg: '40px',
+        md: '68px',
+        sm: '68px',
+        '2sm': '68px',
+      }}
+      maxW="100vw"
+      h="100vh"
     >
       <Heading
-        as="h3"
-        size="lg"
-        mb={'1rem'}
-        color={'#e11f11'}
-        fontWeight={'bold'}
+        as="h1"
+        fontSize={{
+          lg: '2rem',
+          md: '2rem',
+          sm: '1.5rem',
+          '2sm': '1.2rem',
+        }}
+        fontWeight="bold"
+        fontStyle="italic"
+        textAlign="center"
+        mb="16px"
+        textDecoration="underline teal"
       >
         Where do you want tracking Covid 19
       </Heading>
@@ -98,20 +112,32 @@ const CoronaTracking = () => {
         mb={'1rem'}
         boxShadow={'0px 0px 10px #e11f11'}
       />
-      <Heading as="h5" size="md" color={'#e11f11'} fontWeight={'bold'}>
+      <Heading
+        as="h5"
+        fontSize={{
+          lg: '1.5rem',
+          md: '1.5rem',
+          sm: '1.2rem',
+          '2sm': '1.2rem',
+        }}
+        fontWeight="bold"
+        fontStyle="italic"
+        textAlign="center"
+      >
         COVID 19 Chart{' in the '}
         {corona !== null ? data.name : ''}
       </Heading>
-      <div
-        style={{
-          marginTop: '1rem',
-          width: '100%',
-          height: '400px',
-          marginBottom: '1rem',
+      <Box
+        w={{
+          lg: '100%',
+          md: '100%',
+          sm: '100%',
+          '2sm': '100%',
         }}
+        height="400px"
       >
         {corona !== null ? <Doughnut data={data} options={options} /> : ''}
-      </div>
+      </Box>
     </Flex>
   );
 };

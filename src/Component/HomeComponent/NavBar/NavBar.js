@@ -77,10 +77,10 @@ const NavBar = () => {
           </Breadcrumb>
         ))}
         <Breadcrumb py="13px" pl={6} pt={2}>
-          <Logout />
+          <ColorModeSwitcher />
         </Breadcrumb>
         <Breadcrumb pl={6} pb={5}>
-          <ColorModeSwitcher />
+          <Logout />
         </Breadcrumb>
       </Box>
       <Box

@@ -6,7 +6,6 @@ import ItemPortfolios from '../Component/HomeComponent/Body/Portfolios/Portfolio
 import ItemPortfolio from '../Component/HomeComponent/Body/Portfolios/Portfolio';
 import ItemMenuPortfolio from '../Component/HomeComponent/Body/Portfolios/MenuPort';
 import ItemCorona from '../Component/HomeComponent/Body/CoronaTracking';
-import ItemContact from '../Component/HomeComponent/Body/Contact';
 import TodoApp from '../view/Todo/Todo';
 import WeatherApp from '../Component/WeatherApp/WeatherApp';
 import PrivateRoute from '../service/PrivateRoute';
@@ -80,11 +79,6 @@ export const ROUTER_ARRAY = [
         path: '/corona',
         element: <ItemCorona />,
       },
-      {
-        name: 'CONTACT',
-        path: '/contact',
-        element: <ItemContact />,
-      },
     ],
   },
 ];
@@ -106,10 +100,6 @@ export const ROUTER_NAVBAR = [
   {
     name: 'COVID 19',
     path: '/corona',
-  },
-  {
-    name: 'CONTACT',
-    path: '/contact',
   },
 ];
 

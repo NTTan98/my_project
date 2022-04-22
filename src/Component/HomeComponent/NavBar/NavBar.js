@@ -144,7 +144,7 @@ const NavBar = () => {
           src={avatar}
           alt="avatar"
           as={NavLink}
-          to={ROUTER_NAVBAR[0].path}
+          to={ROUTER_NAVBAR[2].path}
         />
       </Box>
       <Box

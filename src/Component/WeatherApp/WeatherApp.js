@@ -87,7 +87,7 @@ const WeatherApp = () => {
             </Text>
           </Alert>
         ) : (
-          <Container p={0}>
+          <Container p={0} color="#fff">
             {weather.main && (
               <Container>
                 <Text
@@ -95,7 +95,6 @@ const WeatherApp = () => {
                   fontWeight={'bold'}
                   fontStyle={'italic'}
                   textAlign={'center'}
-                  color="#fff"
                   mb={'20px'}
                 >
                   {weather.name},{weather.sys.country}
@@ -104,7 +103,6 @@ const WeatherApp = () => {
                   fontSize={'3xl'}
                   fontStyle={'italic'}
                   textAlign={'center'}
-                  color="#fff"
                   mb={'20px'}
                 >
                   {dateBuilder(new Date(weather.dt * 1000))}
@@ -127,7 +125,6 @@ const WeatherApp = () => {
                   fontSize={'4xl'}
                   fontStyle={'italic'}
                   textAlign={'center'}
-                  color="#fff"
                   mb={'20px'}
                 >
                   {weather.weather[0].main}

@@ -11,7 +11,6 @@ import {
   Button,
   Flex,
   Container,
-  Box,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heading, Image, Flex, Container } from '@chakra-ui/react';
+import { Heading, Image, Flex } from '@chakra-ui/react';
 import TodoImage from '../../../../assets/todo.jpg';
 import WeatherImage from '../../../../assets/weather.jpg';
 import { RESPONSIVE_CONFIG } from '../../../../utils/config';

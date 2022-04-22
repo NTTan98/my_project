@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../../bootstrap/constants';
 import { Flex, Heading, Input, Box } from '@chakra-ui/react';
+import { RESPONSIVE_CONFIG } from '../../../utils/config';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -61,38 +62,11 @@ const CoronaTracking = () => {
     }
   }
   return (
-    <Flex
-      direction={'column'}
-      align={'center'}
-      className="Animation"
-      pt={{
-        lg: '40px',
-        md: '68px',
-        sm: '68px',
-        '2sm': '68px',
-      }}
-      maxW="100vw"
-      h="100vh"
-    >
-      <Heading
-        as="h1"
-        fontSize={{
-          lg: '2rem',
-          md: '2rem',
-          sm: '1.5rem',
-          '2sm': '1.2rem',
-        }}
-        fontWeight="bold"
-        fontStyle="italic"
-        textAlign="center"
-        mb="16px"
-        textDecoration="underline teal"
-      >
-        Where do you want tracking Covid 19
-      </Heading>
+    <Flex {...RESPONSIVE_CONFIG.CONTAINER_FLEX_CONFIG} align="center">
+      <Heading {...RESPONSIVE_CONFIG.HEADING_CONFIG}>Covid 19</Heading>
       <Input
         value={search}
-        placeholder="Search"
+        placeholder="Where do you want tracking Covid 19?"
         onChange={e => {
           setSearch(e.target.value);
         }}
@@ -112,18 +86,7 @@ const CoronaTracking = () => {
         mb={'1rem'}
         boxShadow={'0px 0px 10px #e11f11'}
       />
-      <Heading
-        as="h5"
-        fontSize={{
-          lg: '1.5rem',
-          md: '1.5rem',
-          sm: '1.2rem',
-          '2sm': '1.2rem',
-        }}
-        fontWeight="bold"
-        fontStyle="italic"
-        textAlign="center"
-      >
+      <Heading as="h5" fontWeight="bold" fontStyle="italic" textAlign="center">
         COVID 19 Chart{' in the '}
         {corona !== null ? data.name : ''}
       </Heading>

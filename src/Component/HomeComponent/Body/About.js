@@ -9,119 +9,45 @@ import {
   Td,
   TableContainer,
   Button,
-  Container,
   Flex,
   Box,
   Image,
 } from '@chakra-ui/react';
+import MyPDF from '../../../assets/CV.pdf';
+import { RESPONSIVE_CONFIG } from '../../../utils/config';
 const About = () => {
   return (
-    <Container
-      m={0}
-      p={{
-        lg: '0',
-        md: '0',
-        sm: '16px',
-        '2sm': '16px',
-      }}
-      pt={{
-        lg: '0',
-        md: '0',
-        sm: '68px',
-        '2sm': '68px',
-      }}
-      maxW="100vw"
-      h="100vh"
-      className="Animation"
-    >
-      <Heading
-        as="h1"
-        size="2xl"
-        pt={4}
-        textAlign="center"
-        fontWeight="bold"
-        fontStyle="italic"
-        textDecoration="underline teal"
-      >
-        ABOUT ME
-      </Heading>
-      <Flex
-        justify="space-evenly"
-        align="center"
-        pt="4rem"
-        direction={{
-          lg: 'row',
-          md: 'column',
-          sm: 'column',
-          '2sm': 'column',
-        }}
-      >
+    <Flex {...RESPONSIVE_CONFIG.CONTAINER_FLEX_CONFIG}>
+      <Heading {...RESPONSIVE_CONFIG.HEADING_CONFIG}>ABOUT ME</Heading>
+      <Flex {...RESPONSIVE_CONFIG.FLEX_CONFIG}>
         <Box>
           <Image
-            display={{
-              lg: 'block',
-              md: 'block',
-              sm: 'block',
-              '2sm': 'block',
-            }}
             src={Avatar}
             alt="avatar"
             objectFit="cover"
-            boxSize={{
-              lg: '500px',
-              md: '200px',
-              sm: '100px',
-              '2sm': '100px',
-            }}
-            borderRadius="50px"
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.AVATAR_CONFIG}
           />
         </Box>
         <Flex
           direction="column"
-          maxW={{
-            lg: '600px',
-            md: '600px',
-            sm: 'none',
-            '2sm': 'none',
-          }}
-          align={{
-            lg: 'normal',
-            md: 'normal',
-            sm: 'center',
-            '2sm': 'center',
-          }}
+          {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG}
         >
           <Heading
             as="h2"
             size="xl"
-            textAlign={{
-              lg: 'left',
-              md: 'center',
-              sm: 'center',
-              '2sm': 'center',
-            }}
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.TEXT_ALIGN}
           >
             I am Nguyen Thanh Tan
           </Heading>
           <Text
             fontSize="lg"
-            textAlign={{
-              lg: 'left',
-              md: 'center',
-              sm: 'center',
-              '2sm': 'center',
-            }}
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.TEXT_ALIGN}
           >
             Im a Front-End developer. I love to learn new things and am
             passionate about web development.
           </Text>
           <TableContainer
-            display={{
-              lg: 'block',
-              md: 'block',
-              sm: 'none',
-              '2sm': 'none',
-            }}
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.TABLE_CONFIG}
           >
             <Table variant="unstyled">
               <Tbody>
@@ -145,21 +71,21 @@ const About = () => {
             </Table>
           </TableContainer>
           <Button
+            as="a"
+            href={MyPDF}
+            target="_blank"
+            donwload="CV.pdf"
             colorScheme="teal"
             variant="outline"
             maxW="160px"
-            mt={{
-              lg: '0',
-              md: '0',
-              sm: '30px',
-              '2sm': '30px',
-            }}
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG
+              .BUTTON_CONFIG}
           >
             Download my CV
           </Button>
         </Flex>
       </Flex>
-    </Container>
+    </Flex>
   );
 };
 

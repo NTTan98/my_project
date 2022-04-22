@@ -11,7 +11,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Text,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import avatar from '../../../assets/avatar.jpg';
@@ -93,7 +92,7 @@ const NavBar = () => {
         justifyContent="space-between"
         alignItems="center"
         w="100vw"
-        pt={3}
+        pt={5}
         pl={3}
         pr={3}
         pos="fixed"

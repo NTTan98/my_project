@@ -1,86 +1,36 @@
 import React from 'react';
 import Avatar from '../../../assets/avatar.jpg';
 import { Flex, Image, Heading, Box, Text, Link, Icon } from '@chakra-ui/react';
+import { RESPONSIVE_CONFIG } from '../../../utils/config';
 import { SOCIAL_LOGO } from '../../../bootstrap/constants';
 const Home = () => {
   return (
     <Flex
+      {...RESPONSIVE_CONFIG.FLEX_CONFIG}
       maxW="100vw"
       h="100vh"
-      direction={{
-        lg: 'row',
-        md: 'column',
-        sm: 'column',
-        '2sm': 'column',
-      }}
-      align="center"
-      // justify="space-around"
-      justify={{
-        lg: 'space-around',
-        md: 'center',
-        sm: 'center',
-        '2sm': 'center',
-      }}
       className="Animation"
     >
-      <Box
-        className="Home__Avt"
-        boxSize={{
-          lg: '500px',
-          md: '200px',
-          sm: '200px',
-          '2sm': '200px',
-        }}
-      >
+      <Box {...RESPONSIVE_CONFIG.HOME_CONFIG.AVATAR_CONFIG}>
         <Image
           src={Avatar}
           alt="avatar"
           objectFit="cover"
-          boxSize={{
-            lg: '500px',
-            md: '200px',
-            sm: '200px',
-          }}
+          {...RESPONSIVE_CONFIG.HOME_CONFIG.IMAGE_CONFIG}
         />
       </Box>
       <Flex m={0} direction="column" align="center">
         <Heading
           as="h1"
-          fontSize={{
-            lg: '3rem',
-            md: '3rem',
-            sm: '2rem',
-            '2sm': '2rem',
-          }}
-          fontWeight="bold"
-          fontStyle="italic"
-          textAlign="center"
           p={2}
+          {...RESPONSIVE_CONFIG.HOME_CONFIG.HEADING_CONFIG}
         >
           NGUYEN THANH TAN
         </Heading>
-        <Text
-          fontSize={{
-            lg: '1.5rem',
-            md: '1.5rem',
-            sm: '1rem',
-            '2sm': '1rem',
-          }}
-          fontStyle="italic"
-          textAlign="center"
-        >
+        <Text {...RESPONSIVE_CONFIG.HOME_CONFIG.TEXT_CONFIG}>
           Im a Front-End developer, I love to learn new things and
         </Text>
-        <Text
-          fontSize={{
-            lg: '1.5rem',
-            md: '1.5rem',
-            sm: '1rem',
-            '2sm': '1rem',
-          }}
-          fontStyle="italic"
-          textAlign="center"
-        >
+        <Text {...RESPONSIVE_CONFIG.HOME_CONFIG.TEXT_CONFIG}>
           am passionate about web development.
         </Text>
         <Flex w="100%" p={4} justify="space-evenly">

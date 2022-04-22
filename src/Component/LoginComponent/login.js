@@ -41,17 +41,20 @@ const Login = () => {
     password: password,
   };
   const handleSubmit = e => {
-    setIsLoading(true);
     if (username === '') {
       setIsErrorUserName(true);
+      setIsLoading(false);
     } else {
       setIsErrorUserName(false);
+      setIsLoading(true);
     }
 
     if (password === '') {
       setIsErrorPassword(true);
+      setIsLoading(false);
     } else {
       setIsErrorPassword(false);
+      setIsLoading(true);
     }
     if (username !== '' && password !== '') {
       e.preventDefault();
@@ -142,8 +145,20 @@ const Login = () => {
                   onChange={handleChangePassword}
                 />
                 <InputRightElement
+                  zIndex={0}
                   children={
-                    <Button onClick={handleClick} bg="none">
+                    <Button
+                      onClick={handleClick}
+                      bg="none"
+                      boxShadow="none"
+                      outline="none"
+                      _hover={{
+                        bg: 'none',
+                      }}
+                      _focus={{
+                        boxShadow: 'none',
+                      }}
+                    >
                       {show ? <ViewOffIcon /> : <ViewIcon />}
                     </Button>
                   }

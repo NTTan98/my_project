@@ -15,6 +15,7 @@ import ModalDelete from '../ModalDelete/ModalDelete';
 function ListTodo(props) {
   const { todoList } = props;
   const [idSelectDelete, setIdSelectDelete] = useState(null);
+  const [nameSelectDelete, setNameSelectDelete] = useState('');
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
   // Update status Todo
@@ -26,6 +27,7 @@ function ListTodo(props) {
   };
   const idSelect = todo => {
     setIdSelectDelete(todo.id);
+    setNameSelectDelete(todo.todo);
   };
   const handleClickDelete = () => {
     const action = DeleteTodoReducer(idSelectDelete);
@@ -85,6 +87,7 @@ function ListTodo(props) {
         onClose={onClose}
         cancelRef={cancelRef}
         handleClickDelete={handleClickDelete}
+        nameSelectDelete={nameSelectDelete}
       />
     </Container>
   );

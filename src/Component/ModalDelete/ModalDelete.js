@@ -9,7 +9,8 @@ import {
   AlertDialogOverlay,
 } from '@chakra-ui/react';
 const ModalDelete = props => {
-  const { isOpen, onClose, cancelRef, handleClickDelete } = props;
+  const { isOpen, onClose, cancelRef, handleClickDelete, nameSelectDelete } =
+    props;
   return (
     <AlertDialog
       motionPreset="slideInRight"
@@ -21,7 +22,7 @@ const ModalDelete = props => {
       <AlertDialogOverlay>
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
-            Delete Todo
+            Delete "{nameSelectDelete}"
           </AlertDialogHeader>
 
           <AlertDialogBody>

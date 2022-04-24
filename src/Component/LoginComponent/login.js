@@ -18,7 +18,6 @@ import {
   PopoverBody,
   PopoverArrow,
   PopoverCloseButton,
-  Icon,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon, QuestionIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';

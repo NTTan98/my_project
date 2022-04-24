@@ -11,8 +11,16 @@ import {
   Button,
   Flex,
   Container,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverArrow,
+  PopoverCloseButton,
+  Icon,
 } from '@chakra-ui/react';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { ViewIcon, ViewOffIcon, QuestionIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -176,9 +184,32 @@ const Login = () => {
                 mb={4}
                 textColor="black"
                 bg="white"
+                pos={'relative'}
               >
                 Login
               </Button>
+              <Popover>
+                <PopoverTrigger>
+                  <Button
+                    position="fixed"
+                    mt={4}
+                    ml="175px"
+                    _focus={{
+                      outline: 'none',
+                    }}
+                  >
+                    <QuestionIcon color="yellow" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverHeader>Demo Account!</PopoverHeader>
+                  <PopoverBody>
+                    Username: thanhtan98 <br /> Password: 123
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
             </FormControl>
           </Flex>
         </Flex>

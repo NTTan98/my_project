@@ -101,7 +101,7 @@ export const RESPONSIVE_CONFIG = {
         sm: 'center',
         '2sm': 'center',
       },
-      TEXT_ALIGN: {
+      text_align: {
         textAlign: {
           lg: 'left',
           md: 'center',
@@ -109,7 +109,7 @@ export const RESPONSIVE_CONFIG = {
           '2sm': 'center',
         },
       },
-      TABLE_CONFIG: {
+      table_config: {
         display: {
           lg: 'block',
           md: 'block',
@@ -117,7 +117,7 @@ export const RESPONSIVE_CONFIG = {
           '2sm': 'none',
         },
       },
-      BUTTON_CONFIG: {
+      button_config: {
         mt: {
           lg: '0',
           md: '0',
@@ -137,18 +137,17 @@ export const RESPONSIVE_CONFIG = {
         sm: 'column',
         '2sm': 'column',
       },
-      LINK_ITEM_CONFIG: {
-        mb: '2rem',
-        borderRadius: {
-          lg: '40px',
-          md: '40px',
-          sm: '40px',
-          '2sm': '50%',
+      link_item_config: {
+        pb: {
+          lg: '0',
+          md: '0',
+          sm: '0',
+          '2sm': '0',
         },
         boxSize: {
-          lg: '400px',
-          md: '250px',
-          sm: '250px',
+          lg: '300px',
+          md: '200px',
+          sm: '200px',
           '2sm': '150px',
         },
         objectFit: 'cover',

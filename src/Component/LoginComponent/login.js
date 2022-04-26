@@ -190,6 +190,7 @@ const Login = () => {
               <Popover>
                 <PopoverTrigger>
                   <Button
+                    bg="none"
                     position="fixed"
                     mt={4}
                     ml="175px"

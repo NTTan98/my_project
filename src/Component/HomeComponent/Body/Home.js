@@ -48,10 +48,19 @@ const Home = () => {
                 as={item.as}
                 w="2rem"
                 h="2rem"
-                _hover={{
-                  color: item.color,
-                  transform: 'translateY(-5px) scale(1.1)',
-                  animation: '$bounceIn 0.5s ease-in-out',
+                hover={{
+                  lg: {
+                    color: item.color,
+                    transform: 'translateY(-5px) scale(1.1)',
+                    animation: '$bounceIn 0.5s ease-in-out',
+                  },
+                }}
+                active={{
+                  md: {
+                    color: item.color,
+                    transform: 'translateY(-5px) scale(1.1)',
+                    animation: '$bounceIn 0.5s ease-in-out',
+                  },
                 }}
               />
             </Link>

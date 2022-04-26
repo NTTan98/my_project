@@ -13,7 +13,7 @@ import {
   Box,
   Image,
 } from '@chakra-ui/react';
-import MyPDF from '../../../assets/CV.pdf';
+import MyPDF from '../../../assets/Nguyen-Thanh-Tan-CV.pdf';
 import { RESPONSIVE_CONFIG } from '../../../utils/config';
 const About = () => {
   return (
@@ -35,19 +35,19 @@ const About = () => {
           <Heading
             as="h2"
             size="xl"
-            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.TEXT_ALIGN}
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.text_align}
           >
             I am Nguyen Thanh Tan
           </Heading>
           <Text
             fontSize="lg"
-            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.TEXT_ALIGN}
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.text_align}
           >
             Im a Front-End developer. I love to learn new things and am
             passionate about web development.
           </Text>
           <TableContainer
-            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.TABLE_CONFIG}
+            {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG.table_config}
           >
             <Table variant="unstyled">
               <Tbody>
@@ -61,7 +61,7 @@ const About = () => {
                 </Tr>
                 <Tr>
                   <Td>Nationality</Td>
-                  <Td>: Viet Nam</Td>
+                  <Td>:Viet Nam</Td>
                 </Tr>
                 <Tr>
                   <Td>Address</Td>
@@ -74,12 +74,12 @@ const About = () => {
             as="a"
             href={MyPDF}
             target="_blank"
-            donwload="CV.pdf"
+            download="Nguyen-Thanh-Tan-CV.pdf"
             colorScheme="teal"
             variant="outline"
             maxW="160px"
             {...RESPONSIVE_CONFIG.ABOUT_CONFIG.FLEX_CONTENT_CONFIG
-              .BUTTON_CONFIG}
+              .button_config}
           >
             Download my CV
           </Button>

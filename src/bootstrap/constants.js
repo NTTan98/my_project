@@ -179,7 +179,7 @@ export const SOCIAL_LOGO = [
     color: '#3b5998',
   },
   {
-    href: 'https://www.github.com',
+    href: 'https://github.com/NTTan98',
     as: FaGithub,
     color: '#FCD900',
   },

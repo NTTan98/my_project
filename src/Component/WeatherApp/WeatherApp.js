@@ -91,7 +91,7 @@ const WeatherApp = () => {
             {weather.main && (
               <Container>
                 <Text
-                  fontSize={'4xl'}
+                  fontSize={'3xl'}
                   fontWeight={'bold'}
                   fontStyle={'italic'}
                   textAlign={'center'}
@@ -113,7 +113,7 @@ const WeatherApp = () => {
                   bgColor={'rgba(255, 255, 255, 0.3)'}
                   borderRadius={'20px'}
                   textAlign={'center'}
-                  fontSize={'6xl'}
+                  fontSize={'5xl'}
                   fontWeight={'bold'}
                   fontStyle={'italic'}
                   mb={'20px'}

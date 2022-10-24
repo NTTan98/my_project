@@ -21,16 +21,8 @@ import {
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon, QuestionIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
-import axios from 'axios';
-import {
-  ROUTER_ARRAY,
-  EXPIRED_TIME_TOKEN,
-  COOKIES_NAME,
-  BASE_URL,
-} from '../../bootstrap/constants';
+import { ROUTER_ARRAY } from '../../bootstrap/constants';
 import ReactLoading from 'react-loading';
-import { functionCookie } from '../../utils/helpFunction';
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -42,10 +34,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleClick = () => setShow(!show);
-  const data = {
-    username: username,
-    password: password,
-  };
   const handleSubmit = e => {
     if (username === '') {
       setIsErrorUserName(true);
@@ -74,9 +62,6 @@ const Login = () => {
   const handleChangePassword = e => {
     setPassword(e.target.value);
   };
-  if (false) {
-    return <Navigate to={ROUTER_ARRAY[1].path} />;
-  }
 
   return (
     <Container

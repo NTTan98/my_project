@@ -64,25 +64,7 @@ const Login = () => {
     }
     if (username !== '' && password !== '') {
       e.preventDefault();
-      axios
-        .post(BASE_URL.URL_LOGIN, data)
-        .then(res => {
-          // Create token
-          functionCookie.createCookie(
-            COOKIES_NAME.TOKEN,
-            res.data.token,
-            EXPIRED_TIME_TOKEN
-          );
-          setIsLoading(false);
-          navigate(ROUTER_ARRAY[1].path);
-        })
-        .catch(err => {
-          if (err.response.status) {
-            setIsErrorPassword(true);
-            setIsErrorUserName(true);
-            setIsLoading(false);
-          }
-        });
+      navigate(ROUTER_ARRAY[1].path);
     }
   };
   console.log(isLoadingCheck);
@@ -92,7 +74,7 @@ const Login = () => {
   const handleChangePassword = e => {
     setPassword(e.target.value);
   };
-  if (functionCookie.getCookie(COOKIES_NAME.TOKEN)) {
+  if (false) {
     return <Navigate to={ROUTER_ARRAY[1].path} />;
   }
 
